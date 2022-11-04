@@ -1,3 +1,3 @@
 ﻿Public Interface ISQLRepository
-    Function consultarDados()
+    Function consultarDados(dataGrid As DataGrid)
 End Interface

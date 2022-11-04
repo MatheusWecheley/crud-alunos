@@ -4,7 +4,7 @@
 Public Class SQLImplementation
     Implements ISQLRepository
 
-    Public Function consultarDados() As Object Implements ISQLRepository.consultarDados
+    Public Function consultarDados(dataGrid As DataGrid) As Object Implements ISQLRepository.consultarDados
 
         Try
             Dim str = GetStrCon()
@@ -15,7 +15,7 @@ Public Class SQLImplementation
                 Using dataAdapter = New SqlDataAdapter(sql, conexao)
                     Using dt = New DataTable()
                         dataAdapter.Fill(dt)
-                        Return dt
+                        dataGrid.DataSource = dt
                     End Using
                 End Using
             End Using
