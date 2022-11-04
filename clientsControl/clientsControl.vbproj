@@ -74,6 +74,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\Database.vb" />
+    <Compile Include="Database\Implementations\SQLImplementation.vb" />
+    <Compile Include="Database\ISQLRepository.vb" />
     <Compile Include="Views\Form1.vb">
       <SubType>Form</SubType>
     </Compile>

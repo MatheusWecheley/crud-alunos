@@ -1,23 +1,28 @@
 ﻿Imports System.Data.SqlClient
 
-Public Class Program
-    Private Sub btnPesquisar_Click(sender As Object, e As EventArgs) Handles btnPesquisar.Click
+
+Public Class SQLImplementation
+    Implements ISQLRepository
+
+    Public Function consultarDados() As Object Implements ISQLRepository.consultarDados
+
         Try
-            'Dim sql As ISQLRepository
             Dim str = GetStrCon()
+
             Using conexao = New SqlConnection(str)
                 conexao.Open()
                 Dim sql = "SELECT * FROM Pet"
                 Using dataAdapter = New SqlDataAdapter(sql, conexao)
                     Using dt = New DataTable()
                         dataAdapter.Fill(dt)
-                        DataGridView1.DataSource = dt
+                        Return dt
                     End Using
                 End Using
             End Using
-
         Catch ex As Exception
 
         End Try
-    End Sub
+
+        Return vbNull
+    End Function
 End Class
