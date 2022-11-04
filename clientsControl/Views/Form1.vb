@@ -13,14 +13,14 @@
 
 
         Database.server = serverText.Text
-            Database.db = dbText.Text
-            Database.user = userText.Text
-            Database.password = passwordText.Text
+        Database.db = dbText.Text
+        Database.user = userText.Text
+        Database.password = passwordText.Text
 
 
-            Dim program As New Program()
+        Dim program As New Program()
 
-            ToolStripStatusLabel1.Text = "Conectando, aguarde..."
+        ToolStripStatusLabel1.Text = "Conectando, aguarde..."
         Try
             Dim str = GetStrCon()
             Dim conexao = TestarConexao(str)

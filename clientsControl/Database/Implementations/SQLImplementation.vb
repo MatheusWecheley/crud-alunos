@@ -4,25 +4,28 @@
 Public Class SQLImplementation
     Implements ISQLRepository
 
-    Public Function consultarDados(dataGrid As DataGrid) As Object Implements ISQLRepository.consultarDados
+    Public Function consultarDados() As Object Implements ISQLRepository.consultarDados
+
+        Dim dataAdapter As SqlDataAdapter
+        Dim bsource As New BindingSource()
 
         Try
             Dim str = GetStrCon()
+            Dim conexao = New SqlConnection(str)
 
-            Using conexao = New SqlConnection(str)
-                conexao.Open()
-                Dim sql = "SELECT * FROM Pet"
-                Using dataAdapter = New SqlDataAdapter(sql, conexao)
-                    Using dt = New DataTable()
-                        dataAdapter.Fill(dt)
-                        dataGrid.DataSource = dt
-                    End Using
-                End Using
-            End Using
+            Dim sql = "SELECT CodInterno, NumeroRPS, SerieRPS, CodEmpresa FROM RPS"
+            dataAdapter = New SqlDataAdapter(sql, conexao)
+            conexao.Open()
+            Dim ds As New DataSet()
+            Dim commandBuilder As New SqlCommandBuilder(dataAdapter)
+            dataAdapter.Fill(ds, "Orders")
+            bsource.DataSource = ds.Tables("Orders")
+
+            Return bsource
         Catch ex As Exception
-
+            Return ex.Message
         End Try
 
-        Return vbNull
+        Return bsource
     End Function
 End Class
