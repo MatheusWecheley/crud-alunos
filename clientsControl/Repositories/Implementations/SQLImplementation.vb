@@ -13,7 +13,7 @@ Public Class SQLImplementation
             Dim str = GetStrCon()
             Dim conexao = New SqlConnection(str)
 
-            Dim sql = "SELECT CodInterno, NumeroRPS, SerieRPS, CodEmpresa FROM RPS"
+            Dim sql = "SELECT * FROM Pet"
             dataAdapter = New SqlDataAdapter(sql, conexao)
             conexao.Open()
             Dim ds As New DataSet()

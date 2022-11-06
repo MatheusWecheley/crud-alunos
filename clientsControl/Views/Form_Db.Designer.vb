@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form1
+Partial Class Form_Db
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -33,6 +33,7 @@ Partial Class Form1
         Me.Button1 = New System.Windows.Forms.Button()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.btnCancelar = New System.Windows.Forms.Button()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -59,6 +60,7 @@ Partial Class Form1
         Me.passwordText.ForeColor = System.Drawing.SystemColors.WindowText
         Me.passwordText.Location = New System.Drawing.Point(109, 283)
         Me.passwordText.Name = "passwordText"
+        Me.passwordText.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.passwordText.Size = New System.Drawing.Size(237, 26)
         Me.passwordText.TabIndex = 3
         '
@@ -117,10 +119,10 @@ Partial Class Form1
         '
         'Button1
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(165, 346)
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(174, 345)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(123, 53)
+        Me.Button1.Size = New System.Drawing.Size(102, 53)
         Me.Button1.TabIndex = 4
         Me.Button1.Text = "Conectar"
         Me.Button1.UseVisualStyleBackColor = True
@@ -137,16 +139,28 @@ Partial Class Form1
         '
         'ToolStripStatusLabel1
         '
+        Me.ToolStripStatusLabel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
         Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(44, 17)
         Me.ToolStripStatusLabel1.Text = "status: "
         '
-        'Form1
+        'btnCancelar
+        '
+        Me.btnCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancelar.Location = New System.Drawing.Point(368, 408)
+        Me.btnCancelar.Name = "btnCancelar"
+        Me.btnCancelar.Size = New System.Drawing.Size(57, 30)
+        Me.btnCancelar.TabIndex = 10
+        Me.btnCancelar.Text = "Sair"
+        Me.btnCancelar.UseVisualStyleBackColor = True
+        '
+        'Form_Db
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkViolet
         Me.ClientSize = New System.Drawing.Size(437, 450)
+        Me.Controls.Add(Me.btnCancelar)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label4)
@@ -158,7 +172,7 @@ Partial Class Form1
         Me.Controls.Add(Me.dbText)
         Me.Controls.Add(Me.serverText)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Name = "Form1"
+        Me.Name = "Form_Db"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Conexão"
         Me.StatusStrip1.ResumeLayout(False)
@@ -179,4 +193,5 @@ Partial Class Form1
     Friend WithEvents Button1 As Button
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
+    Friend WithEvents btnCancelar As Button
 End Class

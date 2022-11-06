@@ -74,6 +74,16 @@ Namespace My
                 Return CType(Me("CrudConnectionString"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=matheus\yextech;Initial Catalog=Yex;User ID=sa;Password=123")>  _
+        Public ReadOnly Property YexConnectionString() As String
+            Get
+                Return CType(Me("YexConnectionString"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

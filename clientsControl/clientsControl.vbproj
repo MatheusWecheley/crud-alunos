@@ -73,20 +73,26 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\Database.vb" />
-    <Compile Include="Database\Implementations\SQLImplementation.vb" />
-    <Compile Include="Database\ISQLRepository.vb" />
-    <Compile Include="Views\Form1.vb">
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Entities\Usuario.vb" />
+    <Compile Include="Repositories\Implementations\SQLUsuarioImplementation.vb" />
+    <Compile Include="Services\UsuarioServices.vb" />
+    <Compile Include="Utils\Database.vb" />
+    <Compile Include="Repositories\Implementations\SQLImplementation.vb" />
+    <Compile Include="Repositories\IUsuarioRepository.vb" />
+    <Compile Include="Repositories\ISQLRepository.vb" />
+    <Compile Include="Views\Form_Db.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="Views\Form_Db.Designer.vb">
+      <DependentUpon>Form_Db.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -98,6 +104,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Views\Form_Usuarios.Designer.vb">
+      <DependentUpon>Form_Usuarios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Form_Usuarios.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Views\Program.Designer.vb">
       <DependentUpon>Program.vb</DependentUpon>
     </Compile>
@@ -106,14 +118,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="Views\Form_Db.resx">
+      <DependentUpon>Form_Db.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Form_Usuarios.resx">
+      <DependentUpon>Form_Usuarios.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Program.resx">
       <DependentUpon>Program.vb</DependentUpon>
@@ -131,5 +146,6 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
