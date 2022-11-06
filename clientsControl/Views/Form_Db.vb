@@ -21,10 +21,12 @@
 
         If ValidaCamposBD() = False Then Exit Sub
 
-        server = serverText.Text
-        db = dbText.Text
-        user = userText.Text
-        password = passwordText.Text
+        My.Settings.YexConnectionServer = serverText.Text
+        My.Settings.YexConnectionDb = dbText.Text
+        My.Settings.YexConnectionUser = userText.Text
+        My.Settings.YexConnectionPassword = passwordText.Text
+        My.Settings.Save()
+        My.Settings.Reload()
         Dim str = GetStrCon()
 
         ToolStripStatusLabel1.Text = "Conectando, aguarde..."
@@ -48,5 +50,15 @@
         Dim pergunta = MsgBox("Tem certeza que deseja sair da aplicação?", MsgBoxStyle.Question + MsgBoxStyle.YesNo)
         If pergunta <> vbYes Then Exit Sub
         End
+    End Sub
+
+    Private Sub Form_Db_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim str = GetStrCon()
+        Dim conexao = TestarConexao(str)
+
+        If conexao = True Then
+            Me.Dispose()
+            Form_Usuarios.Show()
+        End If
     End Sub
 End Class

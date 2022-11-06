@@ -54,35 +54,52 @@ Namespace My
             End Get
         End Property
         
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=MATHEUS\SQLEXPRESS;Initial Catalog=ClientsControl;Integrated Security"& _ 
-            "=True")>  _
-        Public ReadOnly Property ClientsControlConnectionString() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property YexConnectionServer() As String
             Get
-                Return CType(Me("ClientsControlConnectionString"),String)
+                Return CType(Me("YexConnectionServer"),String)
             End Get
+            Set
+                Me("YexConnectionServer") = value
+            End Set
         End Property
         
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=MATHEUS\SQLEXPRESS;Initial Catalog=Crud;Integrated Security=True")>  _
-        Public ReadOnly Property CrudConnectionString() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property YexConnectionDb() As String
             Get
-                Return CType(Me("CrudConnectionString"),String)
+                Return CType(Me("YexConnectionDb"),String)
             End Get
+            Set
+                Me("YexConnectionDb") = value
+            End Set
         End Property
         
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=matheus\yextech;Initial Catalog=Yex;User ID=sa;Password=123")>  _
-        Public ReadOnly Property YexConnectionString() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property YexConnectionUser() As String
             Get
-                Return CType(Me("YexConnectionString"),String)
+                Return CType(Me("YexConnectionUser"),String)
             End Get
+            Set
+                Me("YexConnectionUser") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property YexConnectionPassword() As String
+            Get
+                Return CType(Me("YexConnectionPassword"),String)
+            End Get
+            Set
+                Me("YexConnectionPassword") = value
+            End Set
         End Property
     End Class
 End Namespace

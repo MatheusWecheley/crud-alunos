@@ -4,13 +4,9 @@ Imports System.Security.Cryptography.X509Certificates
 Imports Microsoft.SqlServer
 Module Database
     Private strCon As String
-    Public server As String
-    Public db As String
-    Public user As String
-    Public password As String
 
     Public Function GetStrCon()
-        strCon = $"Data Source={server}; Integrated Security=false; Initial Catalog={db}; User ID={user}; Password={password}"
+        strCon = $"Data Source={My.Settings.YexConnectionServer}; Integrated Security=false; Initial Catalog={My.Settings.YexConnectionDb}; User ID={My.Settings.YexConnectionUser}; Password={My.Settings.YexConnectionPassword}"
         Return strCon
     End Function
 
@@ -24,8 +20,4 @@ Module Database
             Return False
         End Try
     End Function
-
-
-
-
 End Module

@@ -193,7 +193,9 @@ Partial Class Form_Usuarios
         Me.Controls.Add(Me.txtNome)
         Me.Controls.Add(Me.Button1)
         Me.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "Form_Usuarios"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form_Usuarios"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
