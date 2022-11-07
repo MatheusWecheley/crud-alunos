@@ -38,12 +38,13 @@ Partial Class Form_Usuarios
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtCargo = New System.Windows.Forms.TextBox()
+        Me.btnTrocarBd = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(261, 402)
+        Me.Button1.Location = New System.Drawing.Point(252, 402)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(77, 36)
         Me.Button1.TabIndex = 0
@@ -152,7 +153,7 @@ Partial Class Form_Usuarios
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(374, 60)
+        Me.Panel1.Size = New System.Drawing.Size(634, 60)
         Me.Panel1.TabIndex = 11
         '
         'Label6
@@ -168,7 +169,7 @@ Partial Class Form_Usuarios
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(161, 402)
+        Me.Button2.Location = New System.Drawing.Point(169, 402)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(77, 36)
         Me.Button2.TabIndex = 12
@@ -194,12 +195,22 @@ Partial Class Form_Usuarios
         Me.txtCargo.Size = New System.Drawing.Size(168, 26)
         Me.txtCargo.TabIndex = 14
         '
+        'btnTrocarBd
+        '
+        Me.btnTrocarBd.Location = New System.Drawing.Point(526, 414)
+        Me.btnTrocarBd.Name = "btnTrocarBd"
+        Me.btnTrocarBd.Size = New System.Drawing.Size(96, 24)
+        Me.btnTrocarBd.TabIndex = 15
+        Me.btnTrocarBd.Text = "Trocar conexão"
+        Me.btnTrocarBd.UseVisualStyleBackColor = True
+        '
         'Form_Usuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkViolet
-        Me.ClientSize = New System.Drawing.Size(374, 450)
+        Me.ClientSize = New System.Drawing.Size(634, 450)
+        Me.Controls.Add(Me.btnTrocarBd)
         Me.Controls.Add(Me.txtCargo)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Button2)
@@ -243,4 +254,5 @@ Partial Class Form_Usuarios
     Friend WithEvents Button2 As Button
     Friend WithEvents Label7 As Label
     Friend WithEvents txtCargo As TextBox
+    Friend WithEvents btnTrocarBd As Button
 End Class

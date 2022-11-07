@@ -36,11 +36,26 @@ Public Class Form_Usuarios
         Try
             Dim response = _userRepository.CriarUsuario(user)
             If response = True Then
-                MsgBox("Usuario Criado com sucesso!", MsgBoxStyle.Information)
+                MsgBox("Usuario Criado com sucesso!", MsgBoxStyle.Information, "Sucesso!")
             End If
         Catch ex As Exception
-            MsgBox("Erro ao criar um usuario!" & vbNewLine & vbNewLine & ex.Message, MsgBoxStyle.Exclamation)
+            MsgBox("Erro ao criar um usuario!" & vbNewLine & vbNewLine & ex.Message, MsgBoxStyle.Critical)
         End Try
 
+    End Sub
+
+    Private Sub Form_Usuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+            MsgBox("Criando tabelas, aguarde um momento", MsgBoxStyle.SystemModal)
+            CriarTabelas()
+        Catch ex As Exception
+            MsgBox("Erro ao criar tabelas!" & ex.Message, MsgBoxStyle.Exclamation)
+        End Try
+    End Sub
+
+    Private Sub btnTrocarBd_Click(sender As Object, e As EventArgs) Handles btnTrocarBd.Click
+        My.Settings.YexConnectionServer = ""
+        Me.Hide()
+        Form_Db.Show()
     End Sub
 End Class

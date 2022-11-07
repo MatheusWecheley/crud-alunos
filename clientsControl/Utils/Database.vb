@@ -24,4 +24,35 @@ Module Database
             Return False
         End Try
     End Function
+
+    Public Sub CriarTabelas()
+        Try
+            Dim str As String = GetStrCon()
+            Dim conn As SqlConnection
+            Dim cmd As SqlCommand
+            Dim criarTabela = "if object_id('Usuarios') is null   
+                 BEGIN
+                 CREATE TABLE Usuarios (id int IDENTITY(1,1) PRIMARY KEY, nome varchar(255), sobrenome varchar(255), username varchar(255), senha varchar(255), cargo varchar(10))
+                 END"
+
+            conn = New SqlConnection(str)
+            cmd = New SqlCommand(criarTabela, conn)
+            cmd.Connection.Open()
+            cmd.ExecuteNonQuery()
+        Catch ex As Exception
+            MsgBox("Erro ao criar tabela! " & ex.Message)
+        End Try
+    End Sub
+
+    'Private Function verificarTabelas()
+    'Try
+    'Dim str As String = GetStrCon()
+    'Dim conn As SqlConnection
+    'Dim cmd As SqlCommand
+    'Dim comando As String = "SELECT "
+    '
+    'Catch ex As Exception
+
+    'End Try
+    'End Function
 End Module

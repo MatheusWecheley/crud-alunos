@@ -49,17 +49,22 @@
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
         Dim pergunta = MsgBox("Tem certeza que deseja sair da aplicação?", MsgBoxStyle.Question + MsgBoxStyle.YesNo)
         If pergunta <> vbYes Then Exit Sub
-        End
     End Sub
 
 
     Private Sub Form_Db_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim str = GetStrCon()
-        Dim conexao = TestarConexao(str)
+
+        If My.Settings.YexConnectionServer = "" Then
+            Me.Show()
+        Else
+            Dim str = GetStrCon()
+        Dim conexao = TestarConexao(Str)
 
         If conexao = True Then
-            Me.Dispose()
-            Form_Usuarios.Show()
+                Me.Dispose()
+                Form_Usuarios.Show()
+            End If
         End If
+
     End Sub
 End Class

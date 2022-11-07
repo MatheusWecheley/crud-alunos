@@ -16,13 +16,13 @@ Public Class SQLUsuarioImplementation
             Dim str As String = "INSERT INTO USUARIOS (nome, sobrenome, username, senha, cargo) VALUES (@nome, @sobrenome, @username, @senha, @cargo)"
 
             conexao = New SqlConnection(GetStrCon)
-            conexao.Open()
             cmd = New SqlCommand(str, conexao)
             cmd.Parameters.AddWithValue("@nome", usuario.GetNome)
             cmd.Parameters.AddWithValue("@sobrenome", usuario.GetSobrenome)
             cmd.Parameters.AddWithValue("@username", usuario.GetUsername)
             cmd.Parameters.AddWithValue("@senha", usuario.GetSenha)
             cmd.Parameters.AddWithValue("@cargo", usuario.GetCargo)
+            conexao.Open()
             cmd.ExecuteNonQuery()
             conexao.Close()
             Return True
