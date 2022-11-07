@@ -1,6 +1,4 @@
-﻿Imports System.Data.SqlClient
-
-Public Class Form_Usuarios
+﻿Public Class Form_Usuarios
 
     Private Function ValidarCampos() As Boolean
         If txtNome.Text = "" Then
@@ -25,7 +23,7 @@ Public Class Form_Usuarios
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If ValidarCampos() = False Then Exit Sub
         Dim user As Usuario = New Usuario()
-        Dim _userRepository As IUsuarioRepository = New SQLUsuarioImplementation()
+        Dim _userService As UsuarioServices = New UsuarioServices()
 
         user.GetNome = txtNome.Text
         user.GetSobrenome = txtSobrenome.Text
@@ -34,7 +32,7 @@ Public Class Form_Usuarios
         user.GetCargo = txtCargo.Text
 
         Try
-            Dim response = _userRepository.CriarUsuario(user)
+            Dim response = _userService.AdicionarUsuario(user)
             If response = True Then
                 MsgBox("Usuario Criado com sucesso!", MsgBoxStyle.Information, "Sucesso!")
             End If
