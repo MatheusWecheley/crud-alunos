@@ -4,9 +4,13 @@ Imports System.Security.Cryptography.X509Certificates
 Imports Microsoft.SqlServer
 Module Database
     Private strCon As String
+    Private ReadOnly server = My.Settings.YexConnectionServer.ToString
+    Private ReadOnly db = My.Settings.YexConnectionDb.ToString
+    Private ReadOnly user = My.Settings.YexConnectionUser.ToString
+    Private ReadOnly password = My.Settings.YexConnectionPassword.ToString
 
     Public Function GetStrCon()
-        strCon = $"Data Source={My.Settings.YexConnectionServer}; Integrated Security=false; Initial Catalog={My.Settings.YexConnectionDb}; User ID={My.Settings.YexConnectionUser}; Password={My.Settings.YexConnectionPassword}"
+        strCon = $"Data Source={server}; Integrated Security=false; Initial Catalog={db}; User ID={user}; Password={password}"
         Return strCon
     End Function
 

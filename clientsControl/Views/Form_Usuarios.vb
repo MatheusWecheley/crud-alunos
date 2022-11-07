@@ -1,4 +1,6 @@
-﻿Public Class Form_Usuarios
+﻿Imports System.Data.SqlClient
+
+Public Class Form_Usuarios
 
     Private Function ValidarCampos() As Boolean
         If txtNome.Text = "" Then
@@ -22,5 +24,23 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If ValidarCampos() = False Then Exit Sub
+        Dim user As Usuario = New Usuario()
+        Dim _userRepository As IUsuarioRepository = New SQLUsuarioImplementation()
+
+        user.GetNome = txtNome.Text
+        user.GetSobrenome = txtSobrenome.Text
+        user.GetUsername = txtUsuario.Text
+        user.GetSenha = txtSenha.Text
+        user.GetCargo = txtCargo.Text
+
+        Try
+            Dim response = _userRepository.CriarUsuario(user)
+            If response = True Then
+                MsgBox("Usuario Criado com sucesso!", MsgBoxStyle.Information)
+            End If
+        Catch ex As Exception
+            MsgBox("Erro ao criar um usuario!" & vbNewLine & vbNewLine & ex.Message, MsgBoxStyle.Exclamation)
+        End Try
+
     End Sub
 End Class

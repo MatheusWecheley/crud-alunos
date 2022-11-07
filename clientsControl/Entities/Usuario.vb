@@ -3,6 +3,7 @@
     Private sobrenome As String
     Private username As String
     Private senha As String
+    Private cargo As String
 
     Public Property GetNome() As String
         Get
@@ -37,6 +38,15 @@
         End Get
         Set(value As String)
             senha = value
+        End Set
+    End Property
+
+    Public Property GetCargo() As String
+        Get
+            Return cargo
+        End Get
+        Set(value As String)
+            cargo = value
         End Set
     End Property
 

@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports Microsoft.VisualBasic.ApplicationServices
 
 Public Class SQLUsuarioImplementation
     Implements IUsuarioRepository
@@ -9,26 +10,27 @@ Public Class SQLUsuarioImplementation
 
     Public Function CriarUsuario(usuario As Usuario) As Boolean Implements IUsuarioRepository.CriarUsuario
 
-        Dim str = GetStrCon()
+        Try
+            Dim conexao As SqlConnection
+            Dim cmd As SqlCommand
+            Dim str As String = "INSERT INTO USUARIOS (nome, sobrenome, username, senha, cargo) VALUES (@nome, @sobrenome, @username, @senha, @cargo)"
 
-        Using conn As New SqlConnection(str)
-            Using cmd As New SqlCommand()
-                Try
-                    conn.Open()
-                    cmd.CommandText = "INSERT INTO USUARIOS VALUES (@nome, @sobrenome, @username, @senha"
-                    usuario.GetNome = cmd.Parameters.Add("@nome", SqlDbType.NVarChar).ToString
-                    usuario.GetSobrenome = cmd.Parameters.Add("@sobrenome", SqlDbType.NVarChar).ToString
-                    usuario.GetUsername = cmd.Parameters.Add("@username", SqlDbType.NVarChar).ToString
-                    usuario.GetSenha = cmd.Parameters.Add("@senha", SqlDbType.NVarChar).ToString
-                    cmd.ExecuteNonQuery()
-                    Return True
-                Catch ex As Exception
-                    MsgBox("Erro ao criar um novo usuario!", vbNewLine, ex.Message)
-                    Return False
-                End Try
+            conexao = New SqlConnection(GetStrCon)
+            conexao.Open()
+            cmd = New SqlCommand(str, conexao)
+            cmd.Parameters.AddWithValue("@nome", usuario.GetNome)
+            cmd.Parameters.AddWithValue("@sobrenome", usuario.GetSobrenome)
+            cmd.Parameters.AddWithValue("@username", usuario.GetUsername)
+            cmd.Parameters.AddWithValue("@senha", usuario.GetSenha)
+            cmd.Parameters.AddWithValue("@cargo", usuario.GetCargo)
+            cmd.ExecuteNonQuery()
+            conexao.Close()
+            Return True
+        Catch ex As Exception
+            MsgBox("Erro ao criar um novo usuario!", vbNewLine, ex.Message)
+            Return False
+        End Try
 
-            End Using
-        End Using
         Return True
     End Function
 

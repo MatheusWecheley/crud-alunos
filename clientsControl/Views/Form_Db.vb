@@ -52,6 +52,7 @@
         End
     End Sub
 
+
     Private Sub Form_Db_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim str = GetStrCon()
         Dim conexao = TestarConexao(str)
