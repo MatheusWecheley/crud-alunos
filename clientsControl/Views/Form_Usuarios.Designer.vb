@@ -39,7 +39,10 @@ Partial Class Form_Usuarios
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtCargo = New System.Windows.Forms.TextBox()
         Me.btnTrocarBd = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.btnAtualizar = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
@@ -47,7 +50,7 @@ Partial Class Form_Usuarios
         Me.Button1.Location = New System.Drawing.Point(252, 402)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(77, 36)
-        Me.Button1.TabIndex = 0
+        Me.Button1.TabIndex = 7
         Me.Button1.Text = "Salvar"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -144,7 +147,7 @@ Partial Class Form_Usuarios
         Me.txtConfirmaSenha.Location = New System.Drawing.Point(161, 288)
         Me.txtConfirmaSenha.Name = "txtConfirmaSenha"
         Me.txtConfirmaSenha.Size = New System.Drawing.Size(168, 26)
-        Me.txtConfirmaSenha.TabIndex = 10
+        Me.txtConfirmaSenha.TabIndex = 5
         '
         'Panel1
         '
@@ -172,7 +175,7 @@ Partial Class Form_Usuarios
         Me.Button2.Location = New System.Drawing.Point(169, 402)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(77, 36)
-        Me.Button2.TabIndex = 12
+        Me.Button2.TabIndex = 8
         Me.Button2.Text = "Limpar"
         Me.Button2.UseVisualStyleBackColor = True
         '
@@ -193,16 +196,33 @@ Partial Class Form_Usuarios
         Me.txtCargo.Location = New System.Drawing.Point(161, 340)
         Me.txtCargo.Name = "txtCargo"
         Me.txtCargo.Size = New System.Drawing.Size(168, 26)
-        Me.txtCargo.TabIndex = 14
+        Me.txtCargo.TabIndex = 6
         '
         'btnTrocarBd
         '
-        Me.btnTrocarBd.Location = New System.Drawing.Point(526, 414)
+        Me.btnTrocarBd.Location = New System.Drawing.Point(12, 414)
         Me.btnTrocarBd.Name = "btnTrocarBd"
         Me.btnTrocarBd.Size = New System.Drawing.Size(96, 24)
-        Me.btnTrocarBd.TabIndex = 15
+        Me.btnTrocarBd.TabIndex = 9
         Me.btnTrocarBd.Text = "Trocar conexão"
         Me.btnTrocarBd.UseVisualStyleBackColor = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(368, 82)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(240, 284)
+        Me.DataGridView1.TabIndex = 16
+        '
+        'btnAtualizar
+        '
+        Me.btnAtualizar.Location = New System.Drawing.Point(531, 372)
+        Me.btnAtualizar.Name = "btnAtualizar"
+        Me.btnAtualizar.Size = New System.Drawing.Size(77, 36)
+        Me.btnAtualizar.TabIndex = 10
+        Me.btnAtualizar.Text = "Atualizar"
+        Me.btnAtualizar.UseVisualStyleBackColor = True
         '
         'Form_Usuarios
         '
@@ -210,6 +230,8 @@ Partial Class Form_Usuarios
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkViolet
         Me.ClientSize = New System.Drawing.Size(634, 450)
+        Me.Controls.Add(Me.btnAtualizar)
+        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.btnTrocarBd)
         Me.Controls.Add(Me.txtCargo)
         Me.Controls.Add(Me.Label7)
@@ -230,9 +252,10 @@ Partial Class Form_Usuarios
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "Form_Usuarios"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Form_Usuarios"
+        Me.Text = "Cadastro de Usuarios"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -255,4 +278,6 @@ Partial Class Form_Usuarios
     Friend WithEvents Label7 As Label
     Friend WithEvents txtCargo As TextBox
     Friend WithEvents btnTrocarBd As Button
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents btnAtualizar As Button
 End Class

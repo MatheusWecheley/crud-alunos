@@ -10,7 +10,13 @@
     End Sub
 
     Public Function AdicionarUsuario(user As Usuario) As Boolean
-        Dim response = _usuarioRepository.CriarUsuario(user)
-        Return response
+        Dim validate = _usuarioRepository.VerificarUsername(user)
+
+        If validate = True Then
+            Return False
+        Else
+            Dim response = _usuarioRepository.CriarUsuario(user)
+            Return response
+        End If
     End Function
 End Class

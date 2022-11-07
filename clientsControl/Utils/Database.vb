@@ -25,7 +25,7 @@ Module Database
         End Try
     End Function
 
-    Public Sub CriarTabelas()
+    Public Function CriarTabelas() As Boolean
         Try
             Dim str As String = GetStrCon()
             Dim conn As SqlConnection
@@ -39,20 +39,12 @@ Module Database
             cmd = New SqlCommand(criarTabela, conn)
             cmd.Connection.Open()
             cmd.ExecuteNonQuery()
+
+            Return True
         Catch ex As Exception
             MsgBox("Erro ao criar tabela! " & ex.Message)
+            Return False
         End Try
-    End Sub
-
-    'Private Function verificarTabelas()
-    'Try
-    'Dim str As String = GetStrCon()
-    'Dim conn As SqlConnection
-    'Dim cmd As SqlCommand
-    'Dim comando As String = "SELECT "
-    '
-    'Catch ex As Exception
-
-    'End Try
-    'End Function
+        Return True
+    End Function
 End Module

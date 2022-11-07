@@ -1,5 +1,14 @@
 ﻿Public Class Form_Usuarios
 
+    Private Sub LimparCampos()
+        txtNome.Text = ""
+        txtSobrenome.Text = ""
+        txtUsuario.Text = ""
+        txtSenha.Text = ""
+        txtConfirmaSenha.Text = ""
+        txtCargo.Text = ""
+    End Sub
+
     Private Function ValidarCampos() As Boolean
         If txtNome.Text = "" Then
             MsgBox("Por favor, informe o nome do usuário!", MsgBoxStyle.Exclamation)
@@ -35,6 +44,9 @@
             Dim response = _userService.AdicionarUsuario(user)
             If response = True Then
                 MsgBox("Usuario Criado com sucesso!", MsgBoxStyle.Information, "Sucesso!")
+                LimparCampos()
+            Else
+                MsgBox("Usuario já existente, tente outro usuário!", MsgBoxStyle.Exclamation, "Usuario Existente")
             End If
         Catch ex As Exception
             MsgBox("Erro ao criar um usuario!" & vbNewLine & vbNewLine & ex.Message, MsgBoxStyle.Critical)
@@ -44,8 +56,10 @@
 
     Private Sub Form_Usuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            MsgBox("Criando tabelas, aguarde um momento", MsgBoxStyle.SystemModal)
-            CriarTabelas()
+            Dim tabelas = CriarTabelas()
+            If tabelas = True Then
+                MsgBox("Criado tabelas para uso!", MsgBoxStyle.Information, "Criando tabelas")
+            End If
         Catch ex As Exception
             MsgBox("Erro ao criar tabelas!" & ex.Message, MsgBoxStyle.Exclamation)
         End Try
@@ -55,5 +69,9 @@
         My.Settings.YexConnectionServer = ""
         Me.Hide()
         Form_Db.Show()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        LimparCampos()
     End Sub
 End Class

@@ -41,4 +41,27 @@ Public Class SQLUsuarioImplementation
     Public Function TodosUsuarios() As IEnumerable(Of Usuario) Implements IUsuarioRepository.TodosUsuarios
         Throw New NotImplementedException()
     End Function
+
+    Public Function VerificarUsername(usuario As Usuario) As Boolean Implements IUsuarioRepository.VerificarUsername
+        Try
+            Dim conexao As SqlConnection
+            Dim cmd As SqlCommand
+            Dim read As SqlDataReader
+            Dim str As String = $"SELECT username FROM Usuarios Where username = @username"
+
+            conexao = New SqlConnection(GetStrCon())
+            cmd = New SqlCommand(str, conexao)
+            cmd.Parameters.AddWithValue("@username", usuario.GetUsername)
+            conexao.Open()
+            read = cmd.ExecuteReader()
+            If read.Read() = True Then
+                Return True
+            End If
+            Return False
+            conexao.Close()
+        Catch ex As Exception
+            MsgBox("Erro ao consultar usuario!" & vbNewLine & vbNewLine & ex.Message)
+        End Try
+        Return False
+    End Function
 End Class
