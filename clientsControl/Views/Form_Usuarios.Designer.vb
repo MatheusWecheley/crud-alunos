@@ -29,16 +29,16 @@ Partial Class Form_Usuarios
         Me.txtSobrenome = New System.Windows.Forms.TextBox()
         Me.txtUsuario = New System.Windows.Forms.TextBox()
         Me.txtSenha = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Nome = New System.Windows.Forms.Label()
+        Me.Sobrenome = New System.Windows.Forms.Label()
+        Me.Usuario = New System.Windows.Forms.Label()
+        Me.Senha = New System.Windows.Forms.Label()
+        Me.ConfirmaSenha = New System.Windows.Forms.Label()
         Me.txtConfirmaSenha = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Cargo = New System.Windows.Forms.Label()
         Me.txtCargo = New System.Windows.Forms.TextBox()
         Me.btnTrocarBd = New System.Windows.Forms.Button()
         Me.dtGridUsuarios = New System.Windows.Forms.DataGridView()
@@ -46,6 +46,8 @@ Partial Class Form_Usuarios
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.btnAtualizar = New System.Windows.Forms.Button()
+        Me.txtID = New System.Windows.Forms.TextBox()
+        Me.ID = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.dtGridUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -62,7 +64,7 @@ Partial Class Form_Usuarios
         'txtNome
         '
         Me.txtNome.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNome.Location = New System.Drawing.Point(161, 82)
+        Me.txtNome.Location = New System.Drawing.Point(161, 104)
         Me.txtNome.Name = "txtNome"
         Me.txtNome.Size = New System.Drawing.Size(168, 26)
         Me.txtNome.TabIndex = 1
@@ -70,7 +72,7 @@ Partial Class Form_Usuarios
         'txtSobrenome
         '
         Me.txtSobrenome.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSobrenome.Location = New System.Drawing.Point(161, 132)
+        Me.txtSobrenome.Location = New System.Drawing.Point(161, 154)
         Me.txtSobrenome.Name = "txtSobrenome"
         Me.txtSobrenome.Size = New System.Drawing.Size(168, 26)
         Me.txtSobrenome.TabIndex = 2
@@ -78,7 +80,7 @@ Partial Class Form_Usuarios
         'txtUsuario
         '
         Me.txtUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUsuario.Location = New System.Drawing.Point(161, 185)
+        Me.txtUsuario.Location = New System.Drawing.Point(161, 205)
         Me.txtUsuario.Name = "txtUsuario"
         Me.txtUsuario.Size = New System.Drawing.Size(168, 26)
         Me.txtUsuario.TabIndex = 3
@@ -86,71 +88,71 @@ Partial Class Form_Usuarios
         'txtSenha
         '
         Me.txtSenha.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSenha.Location = New System.Drawing.Point(161, 235)
+        Me.txtSenha.Location = New System.Drawing.Point(161, 255)
         Me.txtSenha.Name = "txtSenha"
         Me.txtSenha.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtSenha.Size = New System.Drawing.Size(168, 26)
         Me.txtSenha.TabIndex = 4
         '
-        'Label1
+        'Nome
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label1.Location = New System.Drawing.Point(94, 85)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(55, 20)
-        Me.Label1.TabIndex = 5
-        Me.Label1.Text = "Nome:"
+        Me.Nome.AutoSize = True
+        Me.Nome.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Nome.ForeColor = System.Drawing.SystemColors.Control
+        Me.Nome.Location = New System.Drawing.Point(94, 104)
+        Me.Nome.Name = "Nome"
+        Me.Nome.Size = New System.Drawing.Size(55, 20)
+        Me.Nome.TabIndex = 5
+        Me.Nome.Text = "Nome:"
         '
-        'Label2
+        'Sobrenome
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(53, 138)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(96, 20)
-        Me.Label2.TabIndex = 6
-        Me.Label2.Text = "Sobrenome:"
+        Me.Sobrenome.AutoSize = True
+        Me.Sobrenome.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Sobrenome.ForeColor = System.Drawing.Color.White
+        Me.Sobrenome.Location = New System.Drawing.Point(53, 154)
+        Me.Sobrenome.Name = "Sobrenome"
+        Me.Sobrenome.Size = New System.Drawing.Size(96, 20)
+        Me.Sobrenome.TabIndex = 6
+        Me.Sobrenome.Text = "Sobrenome:"
         '
-        'Label3
+        'Usuario
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(81, 191)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(68, 20)
-        Me.Label3.TabIndex = 7
-        Me.Label3.Text = "Usuario:"
+        Me.Usuario.AutoSize = True
+        Me.Usuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Usuario.ForeColor = System.Drawing.Color.White
+        Me.Usuario.Location = New System.Drawing.Point(81, 205)
+        Me.Usuario.Name = "Usuario"
+        Me.Usuario.Size = New System.Drawing.Size(68, 20)
+        Me.Usuario.TabIndex = 7
+        Me.Usuario.Text = "Usuario:"
         '
-        'Label4
+        'Senha
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(89, 238)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(60, 20)
-        Me.Label4.TabIndex = 8
-        Me.Label4.Text = "Senha:"
+        Me.Senha.AutoSize = True
+        Me.Senha.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Senha.ForeColor = System.Drawing.Color.White
+        Me.Senha.Location = New System.Drawing.Point(89, 255)
+        Me.Senha.Name = "Senha"
+        Me.Senha.Size = New System.Drawing.Size(60, 20)
+        Me.Senha.TabIndex = 8
+        Me.Senha.Text = "Senha:"
         '
-        'Label5
+        'ConfirmaSenha
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(16, 294)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(133, 20)
-        Me.Label5.TabIndex = 9
-        Me.Label5.Text = "Confirmar Senha:"
+        Me.ConfirmaSenha.AutoSize = True
+        Me.ConfirmaSenha.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ConfirmaSenha.ForeColor = System.Drawing.Color.White
+        Me.ConfirmaSenha.Location = New System.Drawing.Point(16, 311)
+        Me.ConfirmaSenha.Name = "ConfirmaSenha"
+        Me.ConfirmaSenha.Size = New System.Drawing.Size(133, 20)
+        Me.ConfirmaSenha.TabIndex = 9
+        Me.ConfirmaSenha.Text = "Confirmar Senha:"
         '
         'txtConfirmaSenha
         '
         Me.txtConfirmaSenha.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtConfirmaSenha.Location = New System.Drawing.Point(161, 288)
+        Me.txtConfirmaSenha.Location = New System.Drawing.Point(161, 305)
         Me.txtConfirmaSenha.Name = "txtConfirmaSenha"
         Me.txtConfirmaSenha.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtConfirmaSenha.Size = New System.Drawing.Size(168, 26)
@@ -186,21 +188,21 @@ Partial Class Form_Usuarios
         Me.Button2.Text = "Limpar"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'Label7
+        'Cargo
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(94, 343)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(56, 20)
-        Me.Label7.TabIndex = 13
-        Me.Label7.Text = "Cargo:"
+        Me.Cargo.AutoSize = True
+        Me.Cargo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cargo.ForeColor = System.Drawing.Color.White
+        Me.Cargo.Location = New System.Drawing.Point(93, 357)
+        Me.Cargo.Name = "Cargo"
+        Me.Cargo.Size = New System.Drawing.Size(56, 20)
+        Me.Cargo.TabIndex = 13
+        Me.Cargo.Text = "Cargo:"
         '
         'txtCargo
         '
         Me.txtCargo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCargo.Location = New System.Drawing.Point(161, 340)
+        Me.txtCargo.Location = New System.Drawing.Point(161, 354)
         Me.txtCargo.Name = "txtCargo"
         Me.txtCargo.Size = New System.Drawing.Size(168, 26)
         Me.txtCargo.TabIndex = 6
@@ -238,7 +240,7 @@ Partial Class Form_Usuarios
         Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button4.ImageIndex = 1
         Me.Button4.ImageList = Me.ImageList1
-        Me.Button4.Location = New System.Drawing.Point(646, 372)
+        Me.Button4.Location = New System.Drawing.Point(541, 372)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(83, 39)
         Me.Button4.TabIndex = 12
@@ -251,7 +253,7 @@ Partial Class Form_Usuarios
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button3.ImageIndex = 0
         Me.Button3.ImageList = Me.ImageList1
-        Me.Button3.Location = New System.Drawing.Point(735, 371)
+        Me.Button3.Location = New System.Drawing.Point(463, 371)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(72, 40)
         Me.Button3.TabIndex = 11
@@ -264,7 +266,7 @@ Partial Class Form_Usuarios
         Me.btnAtualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnAtualizar.ImageIndex = 2
         Me.btnAtualizar.ImageList = Me.ImageList1
-        Me.btnAtualizar.Location = New System.Drawing.Point(813, 371)
+        Me.btnAtualizar.Location = New System.Drawing.Point(368, 371)
         Me.btnAtualizar.Name = "btnAtualizar"
         Me.btnAtualizar.Size = New System.Drawing.Size(89, 40)
         Me.btnAtualizar.TabIndex = 10
@@ -272,27 +274,49 @@ Partial Class Form_Usuarios
         Me.btnAtualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnAtualizar.UseVisualStyleBackColor = True
         '
+        'txtID
+        '
+        Me.txtID.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtID.Location = New System.Drawing.Point(161, 66)
+        Me.txtID.Name = "txtID"
+        Me.txtID.ReadOnly = True
+        Me.txtID.Size = New System.Drawing.Size(40, 26)
+        Me.txtID.TabIndex = 14
+        '
+        'ID
+        '
+        Me.ID.AutoSize = True
+        Me.ID.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ID.ForeColor = System.Drawing.SystemColors.Control
+        Me.ID.Location = New System.Drawing.Point(119, 72)
+        Me.ID.Name = "ID"
+        Me.ID.Size = New System.Drawing.Size(30, 20)
+        Me.ID.TabIndex = 15
+        Me.ID.Text = "ID:"
+        '
         'Form_Usuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkViolet
         Me.ClientSize = New System.Drawing.Size(914, 450)
+        Me.Controls.Add(Me.ID)
+        Me.Controls.Add(Me.txtID)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.btnAtualizar)
         Me.Controls.Add(Me.dtGridUsuarios)
         Me.Controls.Add(Me.btnTrocarBd)
         Me.Controls.Add(Me.txtCargo)
-        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.Cargo)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.txtConfirmaSenha)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.ConfirmaSenha)
+        Me.Controls.Add(Me.Senha)
+        Me.Controls.Add(Me.Usuario)
+        Me.Controls.Add(Me.Sobrenome)
+        Me.Controls.Add(Me.Nome)
         Me.Controls.Add(Me.txtSenha)
         Me.Controls.Add(Me.txtUsuario)
         Me.Controls.Add(Me.txtSobrenome)
@@ -316,16 +340,16 @@ Partial Class Form_Usuarios
     Friend WithEvents txtSobrenome As TextBox
     Friend WithEvents txtUsuario As TextBox
     Friend WithEvents txtSenha As TextBox
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label5 As Label
+    Friend WithEvents Nome As Label
+    Friend WithEvents Sobrenome As Label
+    Friend WithEvents Usuario As Label
+    Friend WithEvents Senha As Label
+    Friend WithEvents ConfirmaSenha As Label
     Friend WithEvents txtConfirmaSenha As TextBox
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label6 As Label
     Friend WithEvents Button2 As Button
-    Friend WithEvents Label7 As Label
+    Friend WithEvents Cargo As Label
     Friend WithEvents txtCargo As TextBox
     Friend WithEvents btnTrocarBd As Button
     Friend WithEvents dtGridUsuarios As DataGridView
@@ -333,4 +357,6 @@ Partial Class Form_Usuarios
     Friend WithEvents Button3 As Button
     Friend WithEvents ImageList1 As ImageList
     Friend WithEvents Button4 As Button
+    Friend WithEvents txtID As TextBox
+    Friend WithEvents ID As Label
 End Class
