@@ -22,6 +22,8 @@ Partial Class Form_Usuarios
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form_Usuarios))
         Me.Button1 = New System.Windows.Forms.Button()
         Me.txtNome = New System.Windows.Forms.TextBox()
         Me.txtSobrenome = New System.Windows.Forms.TextBox()
@@ -39,10 +41,13 @@ Partial Class Form_Usuarios
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtCargo = New System.Windows.Forms.TextBox()
         Me.btnTrocarBd = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dtGridUsuarios = New System.Windows.Forms.DataGridView()
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.btnAtualizar = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtGridUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
@@ -83,6 +88,7 @@ Partial Class Form_Usuarios
         Me.txtSenha.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSenha.Location = New System.Drawing.Point(161, 235)
         Me.txtSenha.Name = "txtSenha"
+        Me.txtSenha.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtSenha.Size = New System.Drawing.Size(168, 26)
         Me.txtSenha.TabIndex = 4
         '
@@ -146,6 +152,7 @@ Partial Class Form_Usuarios
         Me.txtConfirmaSenha.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtConfirmaSenha.Location = New System.Drawing.Point(161, 288)
         Me.txtConfirmaSenha.Name = "txtConfirmaSenha"
+        Me.txtConfirmaSenha.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtConfirmaSenha.Size = New System.Drawing.Size(168, 26)
         Me.txtConfirmaSenha.TabIndex = 5
         '
@@ -156,7 +163,7 @@ Partial Class Form_Usuarios
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(634, 60)
+        Me.Panel1.Size = New System.Drawing.Size(914, 60)
         Me.Panel1.TabIndex = 11
         '
         'Label6
@@ -164,7 +171,7 @@ Partial Class Form_Usuarios
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(12, 9)
+        Me.Label6.Location = New System.Drawing.Point(286, 9)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(346, 39)
         Me.Label6.TabIndex = 0
@@ -207,21 +214,62 @@ Partial Class Form_Usuarios
         Me.btnTrocarBd.Text = "Trocar conexão"
         Me.btnTrocarBd.UseVisualStyleBackColor = True
         '
-        'DataGridView1
+        'dtGridUsuarios
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(368, 82)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(240, 284)
-        Me.DataGridView1.TabIndex = 16
+        Me.dtGridUsuarios.AllowUserToAddRows = False
+        Me.dtGridUsuarios.AllowUserToDeleteRows = False
+        Me.dtGridUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dtGridUsuarios.Location = New System.Drawing.Point(368, 82)
+        Me.dtGridUsuarios.Name = "dtGridUsuarios"
+        Me.dtGridUsuarios.ReadOnly = True
+        Me.dtGridUsuarios.Size = New System.Drawing.Size(534, 284)
+        Me.dtGridUsuarios.TabIndex = 13
+        '
+        'ImageList1
+        '
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "editar.png")
+        Me.ImageList1.Images.SetKeyName(1, "delete.png")
+        Me.ImageList1.Images.SetKeyName(2, "update.png")
+        '
+        'Button4
+        '
+        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button4.ImageIndex = 1
+        Me.Button4.ImageList = Me.ImageList1
+        Me.Button4.Location = New System.Drawing.Point(646, 372)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(83, 39)
+        Me.Button4.TabIndex = 12
+        Me.Button4.Text = "Remover"
+        Me.Button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button3.ImageIndex = 0
+        Me.Button3.ImageList = Me.ImageList1
+        Me.Button3.Location = New System.Drawing.Point(735, 371)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(72, 40)
+        Me.Button3.TabIndex = 11
+        Me.Button3.Text = "Editar"
+        Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'btnAtualizar
         '
-        Me.btnAtualizar.Location = New System.Drawing.Point(531, 372)
+        Me.btnAtualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAtualizar.ImageIndex = 2
+        Me.btnAtualizar.ImageList = Me.ImageList1
+        Me.btnAtualizar.Location = New System.Drawing.Point(813, 371)
         Me.btnAtualizar.Name = "btnAtualizar"
-        Me.btnAtualizar.Size = New System.Drawing.Size(77, 36)
+        Me.btnAtualizar.Size = New System.Drawing.Size(89, 40)
         Me.btnAtualizar.TabIndex = 10
         Me.btnAtualizar.Text = "Atualizar"
+        Me.btnAtualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnAtualizar.UseVisualStyleBackColor = True
         '
         'Form_Usuarios
@@ -229,9 +277,11 @@ Partial Class Form_Usuarios
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkViolet
-        Me.ClientSize = New System.Drawing.Size(634, 450)
+        Me.ClientSize = New System.Drawing.Size(914, 450)
+        Me.Controls.Add(Me.Button4)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.btnAtualizar)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.dtGridUsuarios)
         Me.Controls.Add(Me.btnTrocarBd)
         Me.Controls.Add(Me.txtCargo)
         Me.Controls.Add(Me.Label7)
@@ -255,7 +305,7 @@ Partial Class Form_Usuarios
         Me.Text = "Cadastro de Usuarios"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtGridUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -278,6 +328,9 @@ Partial Class Form_Usuarios
     Friend WithEvents Label7 As Label
     Friend WithEvents txtCargo As TextBox
     Friend WithEvents btnTrocarBd As Button
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dtGridUsuarios As DataGridView
     Friend WithEvents btnAtualizar As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents ImageList1 As ImageList
+    Friend WithEvents Button4 As Button
 End Class

@@ -55,13 +55,16 @@
     End Sub
 
     Private Sub Form_Usuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim _userService As UsuarioServices = New UsuarioServices()
         Try
             Dim tabelas = CriarTabelas()
             If tabelas = True Then
                 MsgBox("Criado tabelas para uso!", MsgBoxStyle.Information, "Criando tabelas")
+                Dim response = _userService.BuscarUsuarios()
+                dtGridUsuarios.DataSource = response
             End If
         Catch ex As Exception
-            MsgBox("Erro ao criar tabelas!" & ex.Message, MsgBoxStyle.Exclamation)
+            MsgBox("Erro ao criar tabelas!" & ex.Message, MsgBoxStyle.Critical)
         End Try
     End Sub
 
@@ -73,5 +76,11 @@
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         LimparCampos()
+    End Sub
+
+    Private Sub btnAtualizar_Click(sender As Object, e As EventArgs) Handles btnAtualizar.Click
+        Dim _userService As UsuarioServices = New UsuarioServices()
+        Dim response = _userService.BuscarUsuarios()
+        dtGridUsuarios.DataSource = response
     End Sub
 End Class

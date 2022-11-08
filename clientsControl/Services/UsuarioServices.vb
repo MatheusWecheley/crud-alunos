@@ -19,4 +19,8 @@
             Return response
         End If
     End Function
+
+    Public Function BuscarUsuarios() As BindingSource
+        Return _usuarioRepository.TodosUsuarios()
+    End Function
 End Class

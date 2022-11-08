@@ -38,8 +38,28 @@ Public Class SQLUsuarioImplementation
         Throw New NotImplementedException()
     End Function
 
-    Public Function TodosUsuarios() As IEnumerable(Of Usuario) Implements IUsuarioRepository.TodosUsuarios
-        Throw New NotImplementedException()
+    Public Function TodosUsuarios() Implements IUsuarioRepository.TodosUsuarios
+        Dim dataAdapter As SqlDataAdapter
+        Dim bsource As New BindingSource()
+
+        Try
+            Dim str = GetStrCon()
+            Dim conexao = New SqlConnection(str)
+
+            Dim sql = "SELECT id, nome, sobrenome, username, cargo FROM Usuarios"
+            dataAdapter = New SqlDataAdapter(sql, conexao)
+            conexao.Open()
+            Dim ds As New DataSet()
+            Dim commandBuilder As New SqlCommandBuilder(dataAdapter)
+            dataAdapter.Fill(ds, "Orders")
+            bsource.DataSource = ds.Tables("Orders")
+
+            Return bsource
+        Catch ex As Exception
+            Return ex.Message
+        End Try
+
+        Return bsource
     End Function
 
     Public Function VerificarUsername(usuario As Usuario) As Boolean Implements IUsuarioRepository.VerificarUsername
