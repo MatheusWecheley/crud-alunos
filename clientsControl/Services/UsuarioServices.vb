@@ -23,4 +23,9 @@
     Public Function BuscarUsuarios() As BindingSource
         Return _usuarioRepository.TodosUsuarios()
     End Function
+
+    Public Function PegarUsuarioPorID(value As String) As DataTable
+        Dim _userRepository As IUsuarioRepository = New SQLUsuarioImplementation()
+        Return _userRepository.PegarUsuario(value)
+    End Function
 End Class

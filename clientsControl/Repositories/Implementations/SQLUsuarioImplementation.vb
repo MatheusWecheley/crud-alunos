@@ -86,11 +86,12 @@ Public Class SQLUsuarioImplementation
     End Function
 
     Public Function PegarUsuario(value As String) As DataTable Implements IUsuarioRepository.PegarUsuario
+
         Dim num As Integer
         If Integer.TryParse(value, num) Then
             num = value
         End If
-        Dim user_nome As String = value
+
         Dim dt As New DataTable
         Dim ds As New DataSet()
 
@@ -98,8 +99,7 @@ Public Class SQLUsuarioImplementation
         Try
             Dim conexao As SqlConnection
             Dim cmd As SqlCommand
-            Dim str As String = $"SELECT id, nome, sobrenome, username, cargos FROM USUARIOS where id = @user_id or nome like '%" & value & "%'"
-
+            Dim str As String = $"SELECT id, nome, sobrenome, username, cargo FROM USUARIOS where id = @user_id or nome like '%" & value & "%'"
 
             conexao = New SqlConnection(GetStrCon())
             cmd = New SqlCommand(str, conexao)
@@ -113,7 +113,7 @@ Public Class SQLUsuarioImplementation
             Return dt
 
         Catch ex As Exception
-
+            MsgBox("Não foi possivel realizar a consulta do usuário! " & vbNewLine & vbNewLine & ex.Message, MsgBoxStyle.Critical, "Erro na consulta")
         End Try
 
         Return dt

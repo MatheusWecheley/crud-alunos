@@ -227,7 +227,7 @@ Partial Class Form_Usuarios
         Me.dtGridUsuarios.Name = "dtGridUsuarios"
         Me.dtGridUsuarios.ReadOnly = True
         Me.dtGridUsuarios.Size = New System.Drawing.Size(534, 262)
-        Me.dtGridUsuarios.TabIndex = 13
+        Me.dtGridUsuarios.TabIndex = 15
         '
         'ImageList1
         '
@@ -303,7 +303,7 @@ Partial Class Form_Usuarios
         Me.txtPesquisar.Location = New System.Drawing.Point(368, 72)
         Me.txtPesquisar.Name = "txtPesquisar"
         Me.txtPesquisar.Size = New System.Drawing.Size(493, 26)
-        Me.txtPesquisar.TabIndex = 16
+        Me.txtPesquisar.TabIndex = 13
         '
         'btnPesquisar
         '
@@ -313,7 +313,7 @@ Partial Class Form_Usuarios
         Me.btnPesquisar.Location = New System.Drawing.Point(867, 66)
         Me.btnPesquisar.Name = "btnPesquisar"
         Me.btnPesquisar.Size = New System.Drawing.Size(35, 32)
-        Me.btnPesquisar.TabIndex = 17
+        Me.btnPesquisar.TabIndex = 14
         Me.btnPesquisar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnPesquisar.UseVisualStyleBackColor = True
         '

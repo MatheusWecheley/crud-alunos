@@ -85,8 +85,14 @@
     End Sub
 
     Private Sub btnPesquisar_Click(sender As Object, e As EventArgs) Handles btnPesquisar.Click
-        Dim _userRepository As IUsuarioRepository = New SQLUsuarioImplementation()
-        Dim result = _userRepository.PegarUsuario(txtPesquisar.Text)
+        Dim _userServices As UsuarioServices = New UsuarioServices()
+        Dim result = _userServices.PegarUsuarioPorID(txtPesquisar.Text)
         dtGridUsuarios.DataSource = result
+    End Sub
+
+    Private Sub txtPesquisar_KeyDown(sender As Object, e As KeyEventArgs) Handles txtPesquisar.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            btnPesquisar_Click(sender, e)
+        End If
     End Sub
 End Class
