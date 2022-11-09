@@ -83,4 +83,10 @@
         Dim response = _userService.BuscarUsuarios()
         dtGridUsuarios.DataSource = response
     End Sub
+
+    Private Sub btnPesquisar_Click(sender As Object, e As EventArgs) Handles btnPesquisar.Click
+        Dim _userRepository As IUsuarioRepository = New SQLUsuarioImplementation()
+        Dim result = _userRepository.PegarUsuario(txtPesquisar.Text)
+        dtGridUsuarios.DataSource = result
+    End Sub
 End Class

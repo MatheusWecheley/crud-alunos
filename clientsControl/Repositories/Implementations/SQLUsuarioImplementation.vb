@@ -84,4 +84,38 @@ Public Class SQLUsuarioImplementation
         End Try
         Return False
     End Function
+
+    Public Function PegarUsuario(value As String) As DataTable Implements IUsuarioRepository.PegarUsuario
+        Dim num As Integer
+        If Integer.TryParse(value, num) Then
+            num = value
+        End If
+        Dim user_nome As String = value
+        Dim dt As New DataTable
+        Dim ds As New DataSet()
+
+
+        Try
+            Dim conexao As SqlConnection
+            Dim cmd As SqlCommand
+            Dim str As String = $"SELECT id, nome, sobrenome, username, cargos FROM USUARIOS where id = @user_id or nome like '%" & value & "%'"
+
+
+            conexao = New SqlConnection(GetStrCon())
+            cmd = New SqlCommand(str, conexao)
+            cmd.Parameters.AddWithValue("@user_id", num)
+
+            conexao.Open()
+            Dim da As New SqlDataAdapter(cmd)
+            da.Fill(ds)
+            dt = ds.Tables(0)
+            conexao.Close()
+            Return dt
+
+        Catch ex As Exception
+
+        End Try
+
+        Return dt
+    End Function
 End Class

@@ -43,7 +43,6 @@
                 MsgBox("Conectado com sucesso!", MsgBoxStyle.Information, "Sucesso")
                 MsgBox("Necessário reiniciar a aplicação!", MsgBoxStyle.Information)
                 Me.Dispose()
-
             End If
 
         Catch ex As Exception

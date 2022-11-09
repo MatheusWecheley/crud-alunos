@@ -48,6 +48,8 @@ Partial Class Form_Usuarios
         Me.btnAtualizar = New System.Windows.Forms.Button()
         Me.txtID = New System.Windows.Forms.TextBox()
         Me.ID = New System.Windows.Forms.Label()
+        Me.txtPesquisar = New System.Windows.Forms.TextBox()
+        Me.btnPesquisar = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.dtGridUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -221,10 +223,10 @@ Partial Class Form_Usuarios
         Me.dtGridUsuarios.AllowUserToAddRows = False
         Me.dtGridUsuarios.AllowUserToDeleteRows = False
         Me.dtGridUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtGridUsuarios.Location = New System.Drawing.Point(368, 82)
+        Me.dtGridUsuarios.Location = New System.Drawing.Point(368, 104)
         Me.dtGridUsuarios.Name = "dtGridUsuarios"
         Me.dtGridUsuarios.ReadOnly = True
-        Me.dtGridUsuarios.Size = New System.Drawing.Size(534, 284)
+        Me.dtGridUsuarios.Size = New System.Drawing.Size(534, 262)
         Me.dtGridUsuarios.TabIndex = 13
         '
         'ImageList1
@@ -234,6 +236,7 @@ Partial Class Form_Usuarios
         Me.ImageList1.Images.SetKeyName(0, "editar.png")
         Me.ImageList1.Images.SetKeyName(1, "delete.png")
         Me.ImageList1.Images.SetKeyName(2, "update.png")
+        Me.ImageList1.Images.SetKeyName(3, "lupa.png")
         '
         'Button4
         '
@@ -294,12 +297,34 @@ Partial Class Form_Usuarios
         Me.ID.TabIndex = 15
         Me.ID.Text = "ID:"
         '
+        'txtPesquisar
+        '
+        Me.txtPesquisar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPesquisar.Location = New System.Drawing.Point(368, 72)
+        Me.txtPesquisar.Name = "txtPesquisar"
+        Me.txtPesquisar.Size = New System.Drawing.Size(493, 26)
+        Me.txtPesquisar.TabIndex = 16
+        '
+        'btnPesquisar
+        '
+        Me.btnPesquisar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnPesquisar.ImageIndex = 3
+        Me.btnPesquisar.ImageList = Me.ImageList1
+        Me.btnPesquisar.Location = New System.Drawing.Point(867, 66)
+        Me.btnPesquisar.Name = "btnPesquisar"
+        Me.btnPesquisar.Size = New System.Drawing.Size(35, 32)
+        Me.btnPesquisar.TabIndex = 17
+        Me.btnPesquisar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnPesquisar.UseVisualStyleBackColor = True
+        '
         'Form_Usuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkViolet
         Me.ClientSize = New System.Drawing.Size(914, 450)
+        Me.Controls.Add(Me.btnPesquisar)
+        Me.Controls.Add(Me.txtPesquisar)
         Me.Controls.Add(Me.ID)
         Me.Controls.Add(Me.txtID)
         Me.Controls.Add(Me.Button4)
@@ -359,4 +384,6 @@ Partial Class Form_Usuarios
     Friend WithEvents Button4 As Button
     Friend WithEvents txtID As TextBox
     Friend WithEvents ID As Label
+    Friend WithEvents txtPesquisar As TextBox
+    Friend WithEvents btnPesquisar As Button
 End Class

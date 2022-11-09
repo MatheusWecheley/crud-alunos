@@ -5,5 +5,6 @@
     Function AtualizarUsuario(id As Integer) As Usuario
     Sub DeletarUsuario(id As Integer)
     Function TodosUsuarios()
+    Function PegarUsuario(value As String) As DataTable
 
 End Interface
