@@ -24,7 +24,7 @@ Partial Class Form_Usuarios
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form_Usuarios))
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnSalvar = New System.Windows.Forms.Button()
         Me.txtNome = New System.Windows.Forms.TextBox()
         Me.txtSobrenome = New System.Windows.Forms.TextBox()
         Me.txtUsuario = New System.Windows.Forms.TextBox()
@@ -54,14 +54,14 @@ Partial Class Form_Usuarios
         CType(Me.dtGridUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Button1
+        'btnSalvar
         '
-        Me.Button1.Location = New System.Drawing.Point(252, 402)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(77, 36)
-        Me.Button1.TabIndex = 7
-        Me.Button1.Text = "Salvar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnSalvar.Location = New System.Drawing.Point(252, 402)
+        Me.btnSalvar.Name = "btnSalvar"
+        Me.btnSalvar.Size = New System.Drawing.Size(77, 36)
+        Me.btnSalvar.TabIndex = 7
+        Me.btnSalvar.Text = "Salvar"
+        Me.btnSalvar.UseVisualStyleBackColor = True
         '
         'txtNome
         '
@@ -211,7 +211,7 @@ Partial Class Form_Usuarios
         '
         'btnTrocarBd
         '
-        Me.btnTrocarBd.Location = New System.Drawing.Point(12, 414)
+        Me.btnTrocarBd.Location = New System.Drawing.Point(806, 414)
         Me.btnTrocarBd.Name = "btnTrocarBd"
         Me.btnTrocarBd.Size = New System.Drawing.Size(96, 24)
         Me.btnTrocarBd.TabIndex = 9
@@ -346,7 +346,7 @@ Partial Class Form_Usuarios
         Me.Controls.Add(Me.txtUsuario)
         Me.Controls.Add(Me.txtSobrenome)
         Me.Controls.Add(Me.txtNome)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnSalvar)
         Me.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "Form_Usuarios"
@@ -360,7 +360,7 @@ Partial Class Form_Usuarios
 
     End Sub
 
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnSalvar As Button
     Friend WithEvents txtNome As TextBox
     Friend WithEvents txtSobrenome As TextBox
     Friend WithEvents txtUsuario As TextBox

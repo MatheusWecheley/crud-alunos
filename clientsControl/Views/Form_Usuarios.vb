@@ -1,4 +1,7 @@
-﻿Public Class Form_Usuarios
+﻿Imports System.IO.Ports
+Imports System.Runtime.CompilerServices
+
+Public Class Form_Usuarios
 
     Private Sub LimparCampos()
         txtNome.Text = ""
@@ -29,28 +32,34 @@
         Return True
     End Function
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub bntSalvar_Click(sender As Object, e As EventArgs) Handles btnSalvar.Click
         If ValidarCampos() = False Then Exit Sub
         Dim user As Usuario = New Usuario()
         Dim _userService As UsuarioServices = New UsuarioServices()
 
-        user.GetNome = txtNome.Text
-        user.GetSobrenome = txtSobrenome.Text
-        user.GetUsername = txtUsuario.Text
-        user.GetSenha = txtSenha.Text
-        user.GetCargo = txtCargo.Text
+        If txtID.Text = "" Then
+            user.GetNome = txtNome.Text
+            user.GetSobrenome = txtSobrenome.Text
+            user.GetUsername = txtUsuario.Text
+            user.GetSenha = txtSenha.Text
+            user.GetCargo = txtCargo.Text
 
-        Try
-            Dim response = _userService.AdicionarUsuario(user)
-            If response = True Then
-                MsgBox("Usuario Criado com sucesso!", MsgBoxStyle.Information, "Sucesso!")
-                LimparCampos()
-            Else
-                MsgBox("Usuario já existente, tente outro usuário!", MsgBoxStyle.Exclamation, "Usuario Existente")
-            End If
-        Catch ex As Exception
-            MsgBox("Erro ao criar um usuario!" & vbNewLine & vbNewLine & ex.Message, MsgBoxStyle.Critical)
-        End Try
+            Try
+                Dim response = _userService.AdicionarUsuario(user)
+                If response = True Then
+                    MsgBox("Usuario Criado com sucesso!", MsgBoxStyle.Information, "Sucesso!")
+                    LimparCampos()
+                Else
+                    MsgBox("Usuario já existente, tente outro usuário!", MsgBoxStyle.Exclamation, "Usuario Existente")
+                End If
+            Catch ex As Exception
+                MsgBox("Erro ao criar um usuario!" & vbNewLine & vbNewLine & ex.Message, MsgBoxStyle.Critical)
+            End Try
+        Else
+            MsgBox("Usuario com o ID: " & txtID.Text & " não pode ser alterado")
+        End If
+
+
 
     End Sub
 
@@ -95,4 +104,42 @@
             btnPesquisar_Click(sender, e)
         End If
     End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+
+        Dim resposta = MsgBox("Deseja mesmo excluir este usuario?", MsgBoxStyle.YesNo, "Atenção!")
+
+        If resposta <> MsgBoxResult.No Then
+            MsgBox("Trollei!")
+        End If
+
+    End Sub
+
+
+    Private Sub GetLinhasSelecionadas()
+        If dtGridUsuarios.SelectedRows.Count > 0 Then
+            Dim dtColecaoLinhas As DataGridViewSelectedRowCollection = dtGridUsuarios.SelectedRows
+            Dim ids As New List(Of String)
+            For i As Integer = 0 To dtColecaoLinhas.Count - 1
+                Dim id As Integer = dtColecaoLinhas(i).Cells(0).Value
+                Dim nome As String = dtColecaoLinhas(i).Cells(1).Value
+                Dim sobrenome As String = dtColecaoLinhas(i).Cells(2).Value
+                Dim username As String = dtColecaoLinhas(i).Cells(3).Value
+                Dim cargo As String = dtColecaoLinhas(i).Cells(4).Value
+                txtID.Text = id
+                txtNome.Text = nome
+                txtSobrenome.Text = sobrenome
+                txtUsuario.Text = username
+                txtCargo.Text = cargo
+            Next
+        Else
+            Throw New Exception("Não existem linhas selecionadas!")
+        End If
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        GetLinhasSelecionadas()
+    End Sub
+
+
 End Class
