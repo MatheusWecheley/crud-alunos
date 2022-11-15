@@ -96,7 +96,10 @@ Public Class Form_Alunos
                 MsgBox("Aluno atualizado com sucesso!", MsgBoxStyle.Information, "Sucesso!")
                 LimparCampos()
                 btnSalvar.Enabled = True
+            Else
+                MsgBox("Aluno ainda não cadastrado!", MsgBoxStyle.Exclamation, "Atenção")
             End If
+
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Atenção")
         End Try
@@ -131,11 +134,15 @@ Public Class Form_Alunos
     End Sub
 
     Private Sub btnRemover_Click(sender As Object, e As EventArgs) Handles btnRemover.Click
+        GetLinhasSelecionadas()
+        Dim resposta = MsgBox("Deseja mesmo excluir o aluno " & txtNome.Text & " Código: " & txtID.Text & "?", MsgBoxStyle.YesNo, "Atenção!")
 
-        Dim resposta = MsgBox("Deseja mesmo excluir este aluno?", MsgBoxStyle.YesNo, "Atenção!")
-
-        If resposta <> MsgBoxResult.No Then
-            MsgBox("Trollei!")
+        If resposta = MsgBoxResult.Yes Then
+            Dim _alunoService As AlunoServices = New AlunoServices()
+            _alunoService.DeletarAluno(txtID.Text)
+            MsgBox("Aluno Deletado!", MsgBoxStyle.Information, "Sucesso")
+        Else
+            MsgBox("Operação cancelada!", MsgBoxStyle.Information, "Cancelado")
         End If
 
     End Sub

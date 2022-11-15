@@ -21,9 +21,17 @@
     End Function
 
     Public Function AtualizarAluno(aluno As Aluno) As Boolean
-        Dim atualizar = _alunoRepository.AtualizarAluno(aluno)
-        Return atualizar
+        Dim validate = _alunoRepository.VerificarIDNome(aluno)
+        If validate = True Then
+            Dim atualizar = _alunoRepository.AtualizarAluno(aluno)
+            Return atualizar
+        End If
+        Return False
     End Function
+
+    Public Sub DeletarAluno(id As Integer)
+        _alunoRepository.DeletarAluno(id)
+    End Sub
 
     Public Function BuscarAlunos() As BindingSource
         Return _alunoRepository.TodosAlunos()

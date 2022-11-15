@@ -5,7 +5,20 @@ Public Class SQLAlunoImplementation
     Implements IAlunoRepository
 
     Public Sub DeletarAluno(id As Integer) Implements IAlunoRepository.DeletarAluno
-        Throw New NotImplementedException()
+        Try
+            Dim conexao As SqlConnection
+            Dim cmd As SqlCommand
+            Dim str As String = "DELETE FROM ALUNOS WHERE codigo = @codigo"
+
+            conexao = New SqlConnection(GetStrCon)
+            cmd = New SqlCommand(str, conexao)
+            cmd.Parameters.AddWithValue("@codigo", id)
+            conexao.Open()
+            cmd.ExecuteNonQuery()
+            conexao.Close()
+        Catch ex As Exception
+            MsgBox("Erro ao deletar o aluno!", vbNewLine, ex.Message)
+        End Try
     End Sub
 
     Public Function CriarAluno(aluno As Aluno) As Boolean Implements IAlunoRepository.CriarAluno
@@ -28,7 +41,7 @@ Public Class SQLAlunoImplementation
             conexao.Close()
             Return True
         Catch ex As Exception
-            MsgBox("Erro ao criar um novo usuario!", vbNewLine, ex.Message)
+            MsgBox("Erro ao criar um novo aluno!", vbNewLine, ex.Message)
             Return False
         End Try
 
@@ -101,7 +114,7 @@ Public Class SQLAlunoImplementation
             Return False
             conexao.Close()
         Catch ex As Exception
-            MsgBox("Erro ao consultar usuario!" & vbNewLine & vbNewLine & ex.Message)
+            MsgBox("Erro ao consultar o aluno!" & vbNewLine & vbNewLine & ex.Message)
         End Try
         Return False
     End Function
@@ -134,7 +147,7 @@ Public Class SQLAlunoImplementation
             Return dt
 
         Catch ex As Exception
-            MsgBox("Não foi possivel realizar a consulta do usuário! " & vbNewLine & vbNewLine & ex.Message, MsgBoxStyle.Critical, "Erro na consulta")
+            MsgBox("Não foi possivel realizar a consulta do aluno! " & vbNewLine & vbNewLine & ex.Message, MsgBoxStyle.Critical, "Erro na consulta")
         End Try
 
         Return dt
