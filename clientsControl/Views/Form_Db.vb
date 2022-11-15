@@ -75,7 +75,7 @@
 
             If conexao = True Then
                 Me.Dispose()
-                Form_Usuarios.Show()
+                Form_Alunos.Show()
             Else
                 Me.Refresh()
             End If

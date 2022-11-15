@@ -9,7 +9,6 @@ Module Database
     Private user As String
     Private password As String
 
-
     Public Sub SetStrCon(ByRef server, ByRef db, ByRef user, ByRef password)
         Database.server = server
         Database.db = db
@@ -38,9 +37,9 @@ Module Database
             Dim str As String = GetStrCon()
             Dim conn As SqlConnection
             Dim cmd As SqlCommand
-            Dim criarTabela = "if object_id('Usuarios') is null   
+            Dim criarTabela = "if object_id('Alunos') is null   
                  BEGIN
-                 CREATE TABLE Usuarios (id int IDENTITY(1,1) PRIMARY KEY, nome varchar(255), sobrenome varchar(255), username varchar(255), senha varchar(255), cargo varchar(10))
+                 CREATE TABLE Alunos (id int IDENTITY(1,1) PRIMARY KEY, codigo int, nome varchar(255), idade int, cidade varchar(255), estado varchar(255), escolaridade varchar(255))
                  END"
 
             conn = New SqlConnection(str)
