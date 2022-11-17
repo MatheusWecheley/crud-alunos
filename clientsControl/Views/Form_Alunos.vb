@@ -9,7 +9,6 @@ Public Class Form_Alunos
         txtID.Enabled = False
         cmbEscolaridade.SelectedIndex = 0
         cmbEstado.SelectedIndex = 0
-
         Dim _alunoService As AlunoServices = New AlunoServices()
 
         Try
@@ -66,6 +65,43 @@ Public Class Form_Alunos
         End If
         Return True
     End Function
+
+    Private Sub CriarAluno(aluno As Aluno)
+        Dim _alunoService As AlunoServices = New AlunoServices()
+        Dim responseID = _alunoService.AdicionarAlunos(aluno)
+        If responseID = True Then
+            MsgBox("Aluno criado com sucesso!", MsgBoxStyle.Information, "Sucesso!")
+            LimparCampos()
+            Dim refresh = _alunoService.BuscarAlunos()
+
+            dtGridAlunos.DataSource = refresh
+        Else
+            MsgBox("Aluno já existente com este id, tente outro!", MsgBoxStyle.Exclamation, "Aluno Existente")
+        End If
+    End Sub
+
+
+    'Seleciona todas as colunas e linhas do grid
+    Private Sub GetLinhasSelecionadas()
+        If dtGridAlunos.SelectedRows.Count > 0 Then
+            Dim dtColecaoLinhas As DataGridViewSelectedRowCollection = dtGridAlunos.SelectedRows
+            Dim ids As New List(Of String)
+            For i As Integer = 0 To dtColecaoLinhas.Count - 1
+                Dim id As Integer = dtColecaoLinhas(i).Cells(0).Value
+                Dim nome As String = dtColecaoLinhas(i).Cells(1).Value
+                Dim idade As String = dtColecaoLinhas(i).Cells(2).Value
+                Dim cidade As String = dtColecaoLinhas(i).Cells(3).Value
+                Dim escolaridade As String = dtColecaoLinhas(i).Cells(4).Value
+                txtID.Text = id
+                txtNome.Text = nome
+                txtIdade.Text = idade
+                txtCidade.Text = cidade
+                cmbEscolaridade.SelectedItem = escolaridade
+            Next
+        Else
+            Throw New Exception("Não existem linhas selecionadas!")
+        End If
+    End Sub
 
     'Cria uma nova Entidade Aluno e chama o metodo do Aluno Service para adiciona-lo no banco de dados
     Private Sub bntSalvar_Click(sender As Object, e As EventArgs) Handles btnSalvar.Click
@@ -186,6 +222,7 @@ Public Class Form_Alunos
             dtGridAlunos.DataSource = refresh
         Else
             MsgBox("Operação cancelada!", MsgBoxStyle.Information, "Cancelado")
+            LimparCampos()
         End If
 
     End Sub
@@ -195,43 +232,6 @@ Public Class Form_Alunos
         My.Settings.YexConnectionServer = ""
         Me.Hide()
         Form_Db.Show()
-    End Sub
-
-    Private Sub CriarAluno(aluno As Aluno)
-        Dim _alunoService As AlunoServices = New AlunoServices()
-        Dim responseID = _alunoService.AdicionarAlunos(aluno)
-        If responseID = True Then
-            MsgBox("Aluno criado com sucesso!", MsgBoxStyle.Information, "Sucesso!")
-            LimparCampos()
-            Dim refresh = _alunoService.BuscarAlunos()
-
-            dtGridAlunos.DataSource = refresh
-        Else
-            MsgBox("Aluno já existente com este id, tente outro!", MsgBoxStyle.Exclamation, "Aluno Existente")
-        End If
-    End Sub
-
-
-    'Seleciona todas as colunas e linhas do grid
-    Private Sub GetLinhasSelecionadas()
-        If dtGridAlunos.SelectedRows.Count > 0 Then
-            Dim dtColecaoLinhas As DataGridViewSelectedRowCollection = dtGridAlunos.SelectedRows
-            Dim ids As New List(Of String)
-            For i As Integer = 0 To dtColecaoLinhas.Count - 1
-                Dim id As Integer = dtColecaoLinhas(i).Cells(0).Value
-                Dim nome As String = dtColecaoLinhas(i).Cells(1).Value
-                Dim idade As String = dtColecaoLinhas(i).Cells(2).Value
-                Dim cidade As String = dtColecaoLinhas(i).Cells(3).Value
-                Dim escolaridade As String = dtColecaoLinhas(i).Cells(4).Value
-                txtID.Text = id
-                txtNome.Text = nome
-                txtIdade.Text = idade
-                txtCidade.Text = cidade
-                cmbEscolaridade.SelectedItem = escolaridade
-            Next
-        Else
-            Throw New Exception("Não existem linhas selecionadas!")
-        End If
     End Sub
 
 End Class
