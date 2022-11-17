@@ -5,7 +5,6 @@ Public Class Form_Alunos
     Private Sub Form_Alunos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cmbEscolaridade.SelectedIndex = 0
         cmbEstado.SelectedIndex = 0
-
         Dim _alunoService As AlunoServices = New AlunoServices()
 
         Try
@@ -32,22 +31,36 @@ Public Class Form_Alunos
 
     Private Function ValidarCampos() As Boolean
         If txtID.Text = "" Then
-            MsgBox("Por favor, informe o código do aluno!", MsgBoxStyle.Exclamation)
+            MsgBox("Por favor, informe o código do aluno!", MsgBoxStyle.Exclamation, "Atenção")
+            Return False
+        ElseIf IsNumeric(txtID.Text) = False Then
+            MsgBox("Por favor informe um número no código!", MsgBoxStyle.Exclamation, "Atenção")
             Return False
         ElseIf txtNome.Text = "" Then
-            MsgBox("Por favor, informe o Nome do aluno!", MsgBoxStyle.Exclamation)
+            MsgBox("Por favor, informe o Nome do aluno!", MsgBoxStyle.Exclamation, "Atenção")
             Return False
         ElseIf txtIdade.Text = "" Then
-            MsgBox("Por favor, informe a Idade do aluno!", MsgBoxStyle.Exclamation)
+            MsgBox("Por favor, informe a Idade do aluno!", MsgBoxStyle.Exclamation, "Atenção")
             Return False
+        ElseIf IsNumeric(txtIdade.Text) = False Then
+            MsgBox("Por favor informe um número na idade!", MsgBoxStyle.Exclamation, "Atenção")
+            Return False
+        ElseIf txtIdade.Text > 100 Then
+            Dim response = MsgBox("Tem certeza que o aluno tem " & txtIdade.Text & " anos?", MsgBoxStyle.YesNo, "Atenção")
+            If response <> MsgBoxResult.Yes Then
+                MsgBox("Operação cancelada!", MsgBoxStyle.Information, "Cancelado")
+                Return False
+            Else
+                Return True
+            End If
         ElseIf txtCidade.Text = "" Then
-            MsgBox("Por favor, informe a Cidade do aluno!", MsgBoxStyle.Exclamation)
-            Return False
-        ElseIf cmbEstado.SelectedIndex = 0 Then
-            MsgBox("Por favor, informe o Estado do aluno!", MsgBoxStyle.Exclamation)
-            Return False
-        ElseIf cmbEscolaridade.SelectedIndex = 0 Then
-            MsgBox("Por favor, informe a Escolaridade do aluno!!", MsgBoxStyle.Exclamation)
+                MsgBox("Por favor, informe a Cidade do aluno!", MsgBoxStyle.Exclamation, "Atenção")
+                Return False
+            ElseIf cmbEstado.SelectedIndex = 0 Then
+                MsgBox("Por favor, informe o Estado do aluno!", MsgBoxStyle.Exclamation, "Atenção")
+                Return False
+            ElseIf cmbEscolaridade.SelectedIndex = 0 Then
+                MsgBox("Por favor, informe a Escolaridade do aluno!!", MsgBoxStyle.Exclamation, "Atenção")
             Return False
         End If
         Return True
@@ -67,8 +80,11 @@ Public Class Form_Alunos
         Try
             Dim response = _alunoService.AdicionarAlunos(aluno)
             If response = True Then
-                MsgBox("Aluno Criado com sucesso!", MsgBoxStyle.Information, "Sucesso!")
+                MsgBox("Aluno criado com sucesso!", MsgBoxStyle.Information, "Sucesso!")
                 LimparCampos()
+                Dim refresh = _alunoService.BuscarAlunos()
+
+                dtGridAlunos.DataSource = refresh
             Else
                 MsgBox("Aluno já existente com este nome/id, tente outro!", MsgBoxStyle.Exclamation, "Aluno Existente")
             End If
@@ -96,6 +112,10 @@ Public Class Form_Alunos
                 MsgBox("Aluno atualizado com sucesso!", MsgBoxStyle.Information, "Sucesso!")
                 LimparCampos()
                 btnSalvar.Enabled = True
+                txtID.Enabled = True
+                Dim refresh = _alunoService.BuscarAlunos()
+
+                dtGridAlunos.DataSource = refresh
             Else
                 MsgBox("Aluno ainda não cadastrado!", MsgBoxStyle.Exclamation, "Atenção")
             End If
@@ -114,6 +134,8 @@ Public Class Form_Alunos
 
     Private Sub btnLimpar_Click(sender As Object, e As EventArgs) Handles btnLimpar.Click
         LimparCampos()
+        txtID.Enabled = True
+        btnSalvar.Enabled = True
     End Sub
 
     Private Sub btnPesquisar_Click(sender As Object, e As EventArgs) Handles btnPesquisar.Click
@@ -131,6 +153,7 @@ Public Class Form_Alunos
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
         GetLinhasSelecionadas()
         btnSalvar.Enabled = False
+        txtID.Enabled = False
     End Sub
 
     Private Sub btnRemover_Click(sender As Object, e As EventArgs) Handles btnRemover.Click
@@ -141,6 +164,12 @@ Public Class Form_Alunos
             Dim _alunoService As AlunoServices = New AlunoServices()
             _alunoService.DeletarAluno(txtID.Text)
             MsgBox("Aluno Deletado!", MsgBoxStyle.Information, "Sucesso")
+
+            LimparCampos()
+            txtID.Enabled = True
+            btnSalvar.Enabled = True
+            Dim refresh = _alunoService.BuscarAlunos()
+            dtGridAlunos.DataSource = refresh
         Else
             MsgBox("Operação cancelada!", MsgBoxStyle.Information, "Cancelado")
         End If
@@ -167,7 +196,7 @@ Public Class Form_Alunos
                 txtNome.Text = nome
                 txtIdade.Text = idade
                 txtCidade.Text = cidade
-                cmbEscolaridade.SelectedText = escolaridade
+                cmbEscolaridade.SelectedItem = escolaridade
             Next
         Else
             Throw New Exception("Não existem linhas selecionadas!")

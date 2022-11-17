@@ -133,7 +133,7 @@ Public Class SQLAlunoImplementation
         Try
             Dim conexao As SqlConnection
             Dim cmd As SqlCommand
-            Dim str As String = $"SELECT codigo, nome, idade, cidade, escolaridade FROM Alunos where id = @id or nome like '%" & value & "%'"
+            Dim str As String = $"SELECT codigo, nome, idade, cidade, escolaridade FROM Alunos where codigo = @id or nome like '%" & value & "%' or cidade like '%" & value & "%'"
 
             conexao = New SqlConnection(GetStrCon())
             cmd = New SqlCommand(str, conexao)

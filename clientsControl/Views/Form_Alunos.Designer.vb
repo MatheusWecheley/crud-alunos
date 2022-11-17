@@ -158,9 +158,9 @@ Partial Class Form_Alunos
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(216, 3)
+        Me.PictureBox1.Location = New System.Drawing.Point(257, 0)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(62, 57)
+        Me.PictureBox1.Size = New System.Drawing.Size(62, 60)
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
@@ -169,7 +169,7 @@ Partial Class Form_Alunos
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(284, 9)
+        Me.Label6.Location = New System.Drawing.Point(314, 9)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(316, 39)
         Me.Label6.TabIndex = 0
