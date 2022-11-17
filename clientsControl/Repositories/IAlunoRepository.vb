@@ -1,7 +1,8 @@
 ﻿Public Interface IAlunoRepository
 
-    Function VerificarIDNome(usuario As Aluno) As Boolean
-    Function CriarAluno(usuario As Aluno) As Boolean
+    Function VerificarID(aluno As Aluno) As Boolean
+    Function VerificarNome(aluno As Aluno) As Boolean
+    Function CriarAluno(aluno As Aluno) As Boolean
     Function AtualizarAluno(aluno As Aluno) As Boolean
     Sub DeletarAluno(id As Integer)
     Function TodosAlunos()

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form_Alunos
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form_Alunos
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form_Alunos))
@@ -50,7 +50,6 @@ Partial Class Form_Alunos
         Me.btnRemover = New System.Windows.Forms.Button()
         Me.btnEditar = New System.Windows.Forms.Button()
         Me.btnListar = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtGridAlunos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -71,7 +70,7 @@ Partial Class Form_Alunos
         Me.txtNome.Location = New System.Drawing.Point(33, 162)
         Me.txtNome.Name = "txtNome"
         Me.txtNome.Size = New System.Drawing.Size(277, 26)
-        Me.txtNome.TabIndex = 2
+        Me.txtNome.TabIndex = 1
         '
         'txtIdade
         '
@@ -219,8 +218,8 @@ Partial Class Form_Alunos
         Me.txtID.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtID.Location = New System.Drawing.Point(33, 100)
         Me.txtID.Name = "txtID"
-        Me.txtID.Size = New System.Drawing.Size(77, 26)
-        Me.txtID.TabIndex = 1
+        Me.txtID.Size = New System.Drawing.Size(61, 26)
+        Me.txtID.TabIndex = 16
         '
         'Codigo
         '
@@ -323,24 +322,12 @@ Partial Class Form_Alunos
         Me.btnListar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnListar.UseVisualStyleBackColor = True
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label1.Location = New System.Drawing.Point(116, 106)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(107, 15)
-        Me.Label1.TabIndex = 16
-        Me.Label1.Text = "*Apenas Numeros"
-        '
         'Form_Alunos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkViolet
         Me.ClientSize = New System.Drawing.Size(868, 556)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnAtualizar)
         Me.Controls.Add(Me.cmbEstado)
         Me.Controls.Add(Me.cmbEscolaridade)
@@ -396,7 +383,6 @@ Partial Class Form_Alunos
     Friend WithEvents btnEditar As Button
     Friend WithEvents ImageList1 As ImageList
     Friend WithEvents btnRemover As Button
-    Friend WithEvents txtID As TextBox
     Friend WithEvents Codigo As Label
     Friend WithEvents txtPesquisar As TextBox
     Friend WithEvents btnPesquisar As Button
@@ -404,5 +390,5 @@ Partial Class Form_Alunos
     Friend WithEvents cmbEstado As ComboBox
     Friend WithEvents btnAtualizar As Button
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Label1 As Label
+    Protected WithEvents txtID As TextBox
 End Class

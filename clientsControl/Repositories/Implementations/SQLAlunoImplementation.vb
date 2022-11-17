@@ -4,15 +4,16 @@ Imports Microsoft.VisualBasic.ApplicationServices
 Public Class SQLAlunoImplementation
     Implements IAlunoRepository
 
+    'Metodo que deleta o aluno no banco de dados.
     Public Sub DeletarAluno(id As Integer) Implements IAlunoRepository.DeletarAluno
         Try
             Dim conexao As SqlConnection
             Dim cmd As SqlCommand
-            Dim str As String = "DELETE FROM ALUNOS WHERE codigo = @codigo"
+            Dim str As String = "DELETE FROM ALUNOS WHERE id = @id"
 
             conexao = New SqlConnection(GetStrCon)
             cmd = New SqlCommand(str, conexao)
-            cmd.Parameters.AddWithValue("@codigo", id)
+            cmd.Parameters.AddWithValue("@id", id)
             conexao.Open()
             cmd.ExecuteNonQuery()
             conexao.Close()
@@ -21,16 +22,16 @@ Public Class SQLAlunoImplementation
         End Try
     End Sub
 
+    'Metodo que cria o aluno no banco de dados
     Public Function CriarAluno(aluno As Aluno) As Boolean Implements IAlunoRepository.CriarAluno
 
         Try
             Dim conexao As SqlConnection
             Dim cmd As SqlCommand
-            Dim str As String = "INSERT INTO ALUNOS (codigo, nome, idade, cidade, estado, escolaridade) VALUES (@codigo, @nome, @idade, @cidade, @estado, @escolaridade)"
+            Dim str As String = "INSERT INTO ALUNOS (nome, idade, cidade, estado, escolaridade) VALUES (@nome, @idade, @cidade, @estado, @escolaridade)"
 
             conexao = New SqlConnection(GetStrCon)
             cmd = New SqlCommand(str, conexao)
-            cmd.Parameters.AddWithValue("@codigo", aluno.GetID)
             cmd.Parameters.AddWithValue("@nome", aluno.GetNome)
             cmd.Parameters.AddWithValue("@idade", aluno.GetIdade)
             cmd.Parameters.AddWithValue("@cidade", aluno.GetCidade)
@@ -48,15 +49,16 @@ Public Class SQLAlunoImplementation
         Return True
     End Function
 
+    'Metodo que atualiza o aluno no banco de dados
     Public Function AtualizarAluno(aluno As Aluno) As Boolean Implements IAlunoRepository.AtualizarAluno
         Try
             Dim conexao As SqlConnection
             Dim cmd As SqlCommand
-            Dim str = "UPDATE ALUNOS SET nome = @nome, idade = @idade, cidade = @cidade, escolaridade = @escolaridade WHERE codigo = @codigo"
+            Dim str = "UPDATE ALUNOS SET nome = @nome, idade = @idade, cidade = @cidade, escolaridade = @escolaridade WHERE id = @id"
 
             conexao = New SqlConnection(GetStrCon)
             cmd = New SqlCommand(str, conexao)
-            cmd.Parameters.AddWithValue("@codigo", aluno.GetID)
+            cmd.Parameters.AddWithValue("@id", aluno.GetID)
             cmd.Parameters.AddWithValue("@nome", aluno.GetNome)
             cmd.Parameters.AddWithValue("@idade", aluno.GetIdade)
             cmd.Parameters.AddWithValue("@cidade", aluno.GetCidade)
@@ -72,6 +74,7 @@ Public Class SQLAlunoImplementation
         End Try
     End Function
 
+    'Metodos que busca todos os alunos para preenchimento no grid
     Public Function TodosAlunos() Implements IAlunoRepository.TodosAlunos
         Dim dataAdapter As SqlDataAdapter
         Dim bsource As New BindingSource()
@@ -80,7 +83,7 @@ Public Class SQLAlunoImplementation
             Dim str = GetStrCon()
             Dim conexao = New SqlConnection(str)
 
-            Dim sql = "SELECT codigo, nome, idade, cidade, escolaridade FROM Alunos"
+            Dim sql = "SELECT id, nome, idade, cidade, escolaridade FROM Alunos"
             dataAdapter = New SqlDataAdapter(sql, conexao)
             conexao.Open()
             Dim ds As New DataSet()
@@ -96,16 +99,17 @@ Public Class SQLAlunoImplementation
         Return bsource
     End Function
 
-    Public Function VerificarIDNome(aluno As Aluno) As Boolean Implements IAlunoRepository.VerificarIDNome
+    'Metodo que consulta se o aluno existe no banco de dados pelo nome ou id
+    Public Function VerificarID(aluno As Aluno) As Boolean Implements IAlunoRepository.VerificarID
         Try
             Dim conexao As SqlConnection
             Dim cmd As SqlCommand
             Dim read As SqlDataReader
-            Dim str As String = $"SELECT codigo, nome FROM Alunos Where codigo = @codigo or nome like '%" & aluno.GetNome & "%'"
+            Dim str As String = $"SELECT id, nome FROM Alunos Where id = @id"
 
             conexao = New SqlConnection(GetStrCon())
             cmd = New SqlCommand(str, conexao)
-            cmd.Parameters.AddWithValue("@codigo", aluno.GetID)
+            cmd.Parameters.AddWithValue("@id", aluno.GetID)
             conexao.Open()
             read = cmd.ExecuteReader()
             If read.Read() = True Then
@@ -119,6 +123,29 @@ Public Class SQLAlunoImplementation
         Return False
     End Function
 
+    Public Function VerificarNome(aluno As Aluno) As Boolean Implements IAlunoRepository.VerificarNome
+        Try
+            Dim conexao As SqlConnection
+            Dim cmd As SqlCommand
+            Dim read As SqlDataReader
+            Dim str As String = $"SELECT nome FROM Alunos Where nome Like '" & aluno.GetNome & "%'"
+
+            conexao = New SqlConnection(GetStrCon())
+            cmd = New SqlCommand(str, conexao)
+            conexao.Open()
+            read = cmd.ExecuteReader()
+            If read.Read() = True Then
+                Return True
+            End If
+            Return False
+            conexao.Close()
+        Catch ex As Exception
+            MsgBox("Erro ao consultar o aluno!" & vbNewLine & vbNewLine & ex.Message)
+        End Try
+        Return False
+    End Function
+
+    'Metodo que faz a busca de um aluno pelo nome, codigo e cidade.
     Public Function PegarAluno(value As String) As DataTable Implements IAlunoRepository.PegarAluno
 
         Dim num As Integer
@@ -133,7 +160,7 @@ Public Class SQLAlunoImplementation
         Try
             Dim conexao As SqlConnection
             Dim cmd As SqlCommand
-            Dim str As String = $"SELECT codigo, nome, idade, cidade, escolaridade FROM Alunos where codigo = @id or nome like '%" & value & "%' or cidade like '%" & value & "%'"
+            Dim str As String = $"SELECT id, nome, idade, cidade, escolaridade FROM Alunos where id = @id or nome like '%" & value & "%' or cidade like '%" & value & "%'"
 
             conexao = New SqlConnection(GetStrCon())
             cmd = New SqlCommand(str, conexao)

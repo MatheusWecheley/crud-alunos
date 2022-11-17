@@ -9,6 +9,7 @@ Module Database
     Private user As String
     Private password As String
 
+    'Setando a string de conexão com os dados informados
     Public Sub SetStrCon(ByRef server, ByRef db, ByRef user, ByRef password)
         Database.server = server
         Database.db = db
@@ -17,10 +18,12 @@ Module Database
         strCon = $"Data Source={Database.server}; Integrated Security=false; Initial Catalog={Database.db}; User ID={Database.user}; Password={Database.password}"
     End Sub
 
+    'Retorna a string de conexão
     Public Function GetStrCon()
         Return strCon
     End Function
 
+    'Abre a conexão com a string informada, se funcionar retorna true, se não false
     Public Function TestarConexao(strCon As String)
         Try
             Dim conn = New SqlConnection(strCon)
@@ -32,6 +35,8 @@ Module Database
         End Try
     End Function
 
+    'Cria a tabela Alunos com os campos id, codigo, nome, idade, cidade e escolaridade
+    'Se já existir a tabela, ele pula o processo.
     Public Function CriarTabelas() As Boolean
         Try
             Dim str As String = GetStrCon()
@@ -49,7 +54,7 @@ Module Database
 
             Return True
         Catch ex As Exception
-            MsgBox("Erro ao criar tabela! " & ex.Message)
+            MsgBox("Erro ao criar tabela! " & ex.Message, "Erro")
             Return False
         End Try
         Return True

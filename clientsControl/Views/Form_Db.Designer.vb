@@ -30,7 +30,7 @@ Partial Class Form_Db
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnConectar = New System.Windows.Forms.Button()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.btnCancelar = New System.Windows.Forms.Button()
@@ -117,15 +117,15 @@ Partial Class Form_Db
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "Senha:"
         '
-        'Button1
+        'btnConectar
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(174, 345)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(102, 53)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Conectar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnConectar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnConectar.Location = New System.Drawing.Point(174, 345)
+        Me.btnConectar.Name = "btnConectar"
+        Me.btnConectar.Size = New System.Drawing.Size(102, 53)
+        Me.btnConectar.TabIndex = 4
+        Me.btnConectar.Text = "Conectar"
+        Me.btnConectar.UseVisualStyleBackColor = True
         '
         'StatusStrip1
         '
@@ -162,7 +162,7 @@ Partial Class Form_Db
         Me.ClientSize = New System.Drawing.Size(437, 450)
         Me.Controls.Add(Me.btnCancelar)
         Me.Controls.Add(Me.StatusStrip1)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnConectar)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -190,7 +190,7 @@ Partial Class Form_Db
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnConectar As Button
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
     Friend WithEvents btnCancelar As Button
