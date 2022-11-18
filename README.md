@@ -14,7 +14,8 @@ Após o git clone, inicialize a aplicação pelo Visual Studio.
 * **MS SQL Server**
 
 
-**IMPORTANTE<br/> - Ao iniciar o projeto, irá parecer o Form_Db para fazer a conexão com o banco de dados.**.<br>
+##IMPORTANTE
+Ao iniciar o projeto, irá parecer o Form_Db para fazer a conexão com o banco de dados**.<br>
 ![image](https://user-images.githubusercontent.com/100442318/202713656-4fcc9b1d-d16e-44b1-8a7c-7d65f9b71eb5.png)
 ![image](https://user-images.githubusercontent.com/100442318/202713683-33908cb0-0362-4d18-871f-9b51e8ec597e.png)
 <br/>
