@@ -37,7 +37,8 @@ Após reinicializar o projeto, irá aparecer um aviso de que foi criado a tabela
 ![image](https://user-images.githubusercontent.com/100442318/202715092-bcc32f3e-4c50-4db9-b086-824aa7586606.png)
 <br>
   
-  * Editar Aluno: <br>
+  * Editar Aluno:
+ 
   **Quando estiver com a linha do aluno selecionada no Grid, basta clicar no botão Editar(botão salvar ficará indisponivel para evitar confusões), que irá preencher os campos com os dados do aluno selecionado. Após fazer as alteraçãoes desejadas, basta clicar no botão Atualizar. <br>
  ![image](https://user-images.githubusercontent.com/100442318/202717944-f8ab50ec-7ada-4c97-a217-795d1419cbc2.png)
 
