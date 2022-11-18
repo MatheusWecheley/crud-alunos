@@ -48,11 +48,11 @@ Após reinicializar o projeto, irá aparecer um aviso de que foi criado a tabela
  Ao selecionar a linha de um aluno pelo Grid, basta clicar no botão Remover, irá aparecer um aviso de confirmação de exlusão para o aluno selecionado. <br/>
  ![image](https://user-images.githubusercontent.com/100442318/202724597-947a0f15-121f-4963-b69d-4af89b333c83.png)<br/>
  Clicando em sim, fará a exclusão do aluno.<br/>
- ![image](https://user-images.githubusercontent.com/100442318/202725101-3327447e-561b-4242-a772-c9643f5e1471.png)
+ ![image](https://user-images.githubusercontent.com/100442318/202725101-3327447e-561b-4242-a772-c9643f5e1471.png)<br/>
  
  *Pesquisar Aluno:
  
- O metodo de pesquisa pode ser utilizado tanto para pesquisar pelo nome do aluno, quando pelo id, cidade e estado.
+ O metodo de pesquisa pode ser utilizado tanto para pesquisar pelo nome do aluno, quando pelo id, cidade e estado.<br/>
  ![image](https://user-images.githubusercontent.com/100442318/202768884-56fbfd0c-9621-4999-9dcf-68f9658e784e.png)
  ![image](https://user-images.githubusercontent.com/100442318/202768909-647cc276-6763-43fd-b59a-a9fd93e87527.png)
  ![image](https://user-images.githubusercontent.com/100442318/202768923-709d71fb-7e11-4ed1-9c4c-007c97966db5.png)
