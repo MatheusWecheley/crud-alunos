@@ -16,7 +16,7 @@ Após o git clone, inicialize a aplicação pelo Visual Studio.
 
 **IMPORTANTE - Ao iniciar o projeto, irá parecer o Form_Db para fazer a conexão com o banco de dados.**.<br>
 ![image](https://user-images.githubusercontent.com/100442318/202712245-d7da877e-7ef0-474a-b476-114c1c896b49.png)<br/>
-Ao informar os dados, solicitará a reinicialização do projeto.
+Ao informar os dados, solicitará a reinicialização do projeto.<br/>
 ![image](https://user-images.githubusercontent.com/100442318/202712325-4b1a3714-2f1a-4d33-a233-7e3b1cff6da9.png)
 
 
