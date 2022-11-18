@@ -66,6 +66,7 @@ Public Class Form_Alunos
         Return True
     End Function
 
+    'Metodo que cria o aluno chamando o metodo do Aluno Service
     Private Sub CriarAluno(aluno As Aluno)
         Dim _alunoService As AlunoServices = New AlunoServices()
         Dim responseID = _alunoService.AdicionarAlunos(aluno)
@@ -91,11 +92,13 @@ Public Class Form_Alunos
                 Dim nome As String = dtColecaoLinhas(i).Cells(1).Value
                 Dim idade As String = dtColecaoLinhas(i).Cells(2).Value
                 Dim cidade As String = dtColecaoLinhas(i).Cells(3).Value
-                Dim escolaridade As String = dtColecaoLinhas(i).Cells(4).Value
+                Dim estado As String = dtColecaoLinhas(i).Cells(4).Value
+                Dim escolaridade As String = dtColecaoLinhas(i).Cells(5).Value
                 txtID.Text = id
                 txtNome.Text = nome
                 txtIdade.Text = idade
                 txtCidade.Text = cidade
+                cmbEstado.SelectedItem = estado
                 cmbEscolaridade.SelectedItem = escolaridade
             Next
         Else

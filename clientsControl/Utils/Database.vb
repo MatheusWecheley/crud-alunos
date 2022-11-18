@@ -44,7 +44,7 @@ Module Database
             Dim cmd As SqlCommand
             Dim criarTabela = "if object_id('Alunos') is null   
                  BEGIN
-                 CREATE TABLE Alunos (id int IDENTITY(1,1) PRIMARY KEY, codigo int, nome varchar(255), idade int, cidade varchar(255), estado varchar(255), escolaridade varchar(255))
+                 CREATE TABLE Alunos (codigo int IDENTITY(1,1) PRIMARY KEY, nome varchar(255), idade int, cidade varchar(255), estado varchar(255), escolaridade varchar(255))
                  END"
 
             conn = New SqlConnection(str)

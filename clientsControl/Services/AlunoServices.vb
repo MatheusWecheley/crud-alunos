@@ -37,7 +37,7 @@
     End Sub
 
     'Metodo que chama o repositorio para buscar todos os alunos para preenchimento do grid
-    Public Function BuscarAlunos() As BindingSource
+    Public Function BuscarAlunos() As DataTable
         Return _alunoRepository.TodosAlunos()
     End Function
 
@@ -52,6 +52,7 @@
         Return id
     End Function
 
+    'Metodo que verifica se existe um aluno com o nome informado.
     Public Function VerificarNome(aluno As Aluno) As Boolean
         Dim validar = _alunoRepository.VerificarNome(aluno)
         Return validar

@@ -9,11 +9,11 @@ Public Class SQLAlunoImplementation
         Try
             Dim conexao As SqlConnection
             Dim cmd As SqlCommand
-            Dim str As String = "DELETE FROM ALUNOS WHERE id = @id"
+            Dim str As String = "DELETE FROM ALUNOS WHERE codigo = @codigo"
 
             conexao = New SqlConnection(GetStrCon)
             cmd = New SqlCommand(str, conexao)
-            cmd.Parameters.AddWithValue("@id", id)
+            cmd.Parameters.AddWithValue("@codigo", id)
             conexao.Open()
             cmd.ExecuteNonQuery()
             conexao.Close()
@@ -54,11 +54,11 @@ Public Class SQLAlunoImplementation
         Try
             Dim conexao As SqlConnection
             Dim cmd As SqlCommand
-            Dim str = "UPDATE ALUNOS SET nome = @nome, idade = @idade, cidade = @cidade, escolaridade = @escolaridade WHERE id = @id"
+            Dim str = "UPDATE ALUNOS SET nome = @nome, idade = @idade, cidade = @cidade, estado = @estado, escolaridade = @escolaridade WHERE codigo = @codigo"
 
             conexao = New SqlConnection(GetStrCon)
             cmd = New SqlCommand(str, conexao)
-            cmd.Parameters.AddWithValue("@id", aluno.GetID)
+            cmd.Parameters.AddWithValue("@codigo", aluno.GetID)
             cmd.Parameters.AddWithValue("@nome", aluno.GetNome)
             cmd.Parameters.AddWithValue("@idade", aluno.GetIdade)
             cmd.Parameters.AddWithValue("@cidade", aluno.GetCidade)
@@ -77,26 +77,25 @@ Public Class SQLAlunoImplementation
     'Metodos que busca todos os alunos para preenchimento no grid
     Public Function TodosAlunos() Implements IAlunoRepository.TodosAlunos
         Dim dataAdapter As SqlDataAdapter
-        Dim bsource As New BindingSource()
+        Dim dt As New DataTable
 
         Try
             Dim str = GetStrCon()
             Dim conexao = New SqlConnection(str)
 
-            Dim sql = "SELECT id, nome, idade, cidade, escolaridade FROM Alunos"
+            Dim sql = "SELECT codigo, nome, idade, cidade, estado, escolaridade FROM Alunos"
             dataAdapter = New SqlDataAdapter(sql, conexao)
             conexao.Open()
             Dim ds As New DataSet()
-            Dim commandBuilder As New SqlCommandBuilder(dataAdapter)
-            dataAdapter.Fill(ds, "Orders")
-            bsource.DataSource = ds.Tables("Orders")
+            dataAdapter.Fill(ds, "Alunos")
+            dt = ds.Tables(0)
 
-            Return bsource
+            Return dt
         Catch ex As Exception
             Return ex.Message
         End Try
 
-        Return bsource
+        Return dt
     End Function
 
     'Metodo que consulta se o aluno existe no banco de dados pelo nome ou id
@@ -105,11 +104,11 @@ Public Class SQLAlunoImplementation
             Dim conexao As SqlConnection
             Dim cmd As SqlCommand
             Dim read As SqlDataReader
-            Dim str As String = $"SELECT id, nome FROM Alunos Where id = @id"
+            Dim str As String = $"SELECT codigo, nome FROM Alunos Where codigo = @codigo"
 
             conexao = New SqlConnection(GetStrCon())
             cmd = New SqlCommand(str, conexao)
-            cmd.Parameters.AddWithValue("@id", aluno.GetID)
+            cmd.Parameters.AddWithValue("@codigo", aluno.GetID)
             conexao.Open()
             read = cmd.ExecuteReader()
             If read.Read() = True Then
@@ -160,11 +159,11 @@ Public Class SQLAlunoImplementation
         Try
             Dim conexao As SqlConnection
             Dim cmd As SqlCommand
-            Dim str As String = $"SELECT id, nome, idade, cidade, escolaridade FROM Alunos where id = @id or nome like '%" & value & "%' or cidade like '%" & value & "%'"
+            Dim str As String = $"SELECT codigo, nome, idade, cidade, estado, escolaridade FROM Alunos where codigo = @codigo or nome like '%" & value & "%' or cidade like '%" & value & "%' or estado like '%" & value & "%'"
 
             conexao = New SqlConnection(GetStrCon())
             cmd = New SqlCommand(str, conexao)
-            cmd.Parameters.AddWithValue("@id", num)
+            cmd.Parameters.AddWithValue("@codigo", num)
 
             conexao.Open()
             Dim da As New SqlDataAdapter(cmd)
