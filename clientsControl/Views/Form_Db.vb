@@ -3,16 +3,16 @@
     'Realiza a validação dos campos se estão preenchidos.
     Private Function ValidaCamposBD()
         If serverText.Text = "" Then
-            MsgBox("O campo servidor precisa ser preenchido!" & vbNewLine & vbNewLine & vbCritical)
+            MsgBox("O campo servidor precisa ser preenchido!", MsgBoxStyle.Exclamation, "Atenção!")
             Return False
         ElseIf dbText.Text = "" Then
-            MsgBox("O campo do banco de dados precisa ser preenchido!" & vbNewLine & vbNewLine & vbCritical)
+            MsgBox("O campo do banco de dados precisa ser preenchido!", MsgBoxStyle.Exclamation, "Atenção!")
             Return False
         ElseIf userText.Text = "" Then
-            MsgBox("O campo do banco de dados precisa ser preenchido!" & vbNewLine & vbNewLine & vbCritical)
+            MsgBox("O campo do usuário precisa ser preenchido!", MsgBoxStyle.Exclamation, "Atenção!")
             Return False
         ElseIf passwordText.Text = "" Then
-            MsgBox("O campo do banco de dados precisa ser preenchido!" & vbNewLine & vbNewLine & vbCritical)
+            MsgBox("O campo da senha precisa ser preenchido!", MsgBoxStyle.Exclamation, "Atenção!")
             Return False
         End If
         Return True
@@ -85,5 +85,29 @@
             End If
         End If
 
+    End Sub
+
+    Private Sub serverText_KeyDown(sender As Object, e As KeyEventArgs) Handles serverText.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            btnConectar_Click(sender, e)
+        End If
+    End Sub
+
+    Private Sub dbText_KeyDown(sender As Object, e As KeyEventArgs) Handles dbText.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            btnConectar_Click(sender, e)
+        End If
+    End Sub
+
+    Private Sub userText_KeyDown(sender As Object, e As KeyEventArgs) Handles userText.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            btnConectar_Click(sender, e)
+        End If
+    End Sub
+
+    Private Sub passwordText_KeyDown(sender As Object, e As KeyEventArgs) Handles passwordText.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            btnConectar_Click(sender, e)
+        End If
     End Sub
 End Class
