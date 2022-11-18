@@ -46,7 +46,9 @@ Após reinicializar o projeto, irá aparecer um aviso de que foi criado a tabela
 
  Ao selecionar a linha de um aluno pelo Grid, basta clicar no botão Remover, irá aparecer um aviso de confirmação de exlusão para o aluno selecionado. <br/>
  ![image](https://user-images.githubusercontent.com/100442318/202724597-947a0f15-121f-4963-b69d-4af89b333c83.png)<br/>
- Clicando em sim, fará a exclusão do aluno.
+ Clicando em sim, fará a exclusão do aluno.<br/>
+ ![image](https://user-images.githubusercontent.com/100442318/202725101-3327447e-561b-4242-a772-c9643f5e1471.png)
+
 
   
   
