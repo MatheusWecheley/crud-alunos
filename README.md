@@ -39,23 +39,15 @@ Após reinicializar o projeto, irá aparecer um aviso de que foi criado a tabela
   
   * Editar Aluno:
  
-  **Quando estiver com a linha do aluno selecionada no Grid, basta clicar no botão Editar(botão salvar ficará indisponivel para evitar confusões), que irá preencher os campos com os dados do aluno selecionado. Após fazer as alteraçãoes desejadas, basta clicar no botão Atualizar. <br>
- ![image](https://user-images.githubusercontent.com/100442318/202717944-f8ab50ec-7ada-4c97-a217-795d1419cbc2.png)
+  Quando estiver com a linha do aluno selecionada no Grid, basta clicar no botão Editar(botão salvar ficará indisponivel para evitar confusões), que irá preencher os campos com os dados do aluno selecionado. Após fazer as alteraçãoes desejadas, basta clicar no botão Atualizar. <br/>
+ ![image](https://user-images.githubusercontent.com/100442318/202717944-f8ab50ec-7ada-4c97-a217-795d1419cbc2.png)<br/>
+ 
+ * Remover Aluno:
+
+ Ao selecionar a linha de um aluno pelo Grid, basta clicar no botão Remover, irá aparecer um aviso de confirmação de exlusão para o aluno selecionado. <br/>
+ ![image](https://user-images.githubusercontent.com/100442318/202724597-947a0f15-121f-4963-b69d-4af89b333c83.png)<br/>
+ Clicando em sim, fará a exclusão do aluno.
 
   
-   * `GET` <br>
-      Usando GET, retornará as 20 primeiras universidades de cada um dos países populados do banco. 
-      * `Filter` <br>
-      Permitido filtro de busca por pais e navegação de paginas. (limite de 20 por pagina) 
-      Ex: `localhost:3000/universities?country=brazil&page=3` <br>
-   * `GET:ID` <br>
-      Retornando dados da busca da universidade pelo ID da mesma. Ex: `localhost:3000/universities/32381733823da`<br>
-   * `POST` <br>
-      Metodo para cadastro de Universidades, permitindo os campos (alpha_two_code, web_pages, name, country, domains, state-province). Não permitindo cadastrar outra         universidade com mesmo nome na mesma collection.
-   * `PUT` <br>
-      Buscando a universiade pelo ID e permitindo alterar os campos (web_pages, name, domains);
-   * `DELETE` <br>
-      Buscando a universidade pelo ID e permitindo DELETAR a mesma.    
-      
   
   
