@@ -212,7 +212,7 @@ Public Class Form_Alunos
     'Ao selecionar a linha do aluno no grid, pergunta ao usuario se deseja excluir o aluno, caso positivo, chama o metodo do Aluno Service que faz a remoção do aluno no banco de dados
     Private Sub btnRemover_Click(sender As Object, e As EventArgs) Handles btnRemover.Click
         GetLinhasSelecionadas()
-        Dim resposta = MsgBox("Deseja mesmo excluir o aluno: " & txtNome.Text & ", Código: " & txtID.Text & "?", MsgBoxStyle.YesNo, "Atenção!")
+        Dim resposta = MsgBox("Deseja mesmo excluir o aluno: " & txtNome.Text & ", Código: " & txtID.Text & "?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Atenção!")
 
         If resposta = MsgBoxResult.Yes Then
             Dim _alunoService As AlunoServices = New AlunoServices()

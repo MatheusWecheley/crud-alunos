@@ -22,6 +22,7 @@ Partial Class Form_Db
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form_Db))
         Me.serverText = New System.Windows.Forms.TextBox()
         Me.dbText = New System.Windows.Forms.TextBox()
         Me.passwordText = New System.Windows.Forms.TextBox()
@@ -172,6 +173,7 @@ Partial Class Form_Db
         Me.Controls.Add(Me.dbText)
         Me.Controls.Add(Me.serverText)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form_Db"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Conexão"
