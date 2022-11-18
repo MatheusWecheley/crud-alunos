@@ -52,7 +52,7 @@ Após reinicializar o projeto, irá aparecer um aviso de que foi criado a tabela
  
  Pesquisar Aluno:
  
- O metodo de pesquisa pode ser utilizado tanto para pesquisar pelo nome do aluno, quando pelo id, cidade e estado.<br/>
+ O metodo de pesquisa pode ser utilizado tanto para pesquisar pelo nome do aluno, quando pelo codigo, cidade e estado.<br/>
  <br/>
  ![image](https://user-images.githubusercontent.com/100442318/202768884-56fbfd0c-9621-4999-9dcf-68f9658e784e.png)
  ![image](https://user-images.githubusercontent.com/100442318/202768909-647cc276-6763-43fd-b59a-a9fd93e87527.png)
