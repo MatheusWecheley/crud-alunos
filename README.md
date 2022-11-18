@@ -32,7 +32,7 @@ Após reinicializar o projeto, irá aparecer um aviso de que foi criado a tabela
  
   * Criar aluno:
   
-  **Ao preencher <b>Todos<b/> os campos(caso já exista um aluno com este mesmo nome, irá aparecer um aviso)clicando no botão Salvar, sera inserido o aluno no banco de dados.**
+  **Quando estiver inserindo um novo aluno, o botão Atualizar fica indisponível para não houver problemas em relação a Editar um aluno. Ao preencher <b>Todos<b/> os campos(caso já exista um aluno com este mesmo nome, irá aparecer um aviso) clicando no botão Salvar, será inserido o aluno no banco de dados.**
 ![image](https://user-images.githubusercontent.com/100442318/202715224-9b0e29b6-17dd-4370-8e88-a385732c65ea.png)
 ![image](https://user-images.githubusercontent.com/100442318/202715092-bcc32f3e-4c50-4db9-b086-824aa7586606.png)
 
