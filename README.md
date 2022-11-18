@@ -1,5 +1,5 @@
 <h2>Olá, este é um repositorio referente a vaga de desenvolvedor back end!</h2>
-*Utilizei este repositório que já usava para aprendizado e inserções com banco de dados!*
+**Utilizei este repositório que já usava para aprendizado e inserções com banco de dados!**
 
 ### Para correta instalação e execução desse projeto, é recomendada ter globalmente instalado Visual Studio 2019 ou 2022 e MS SQL Server.
 
